@@ -1,0 +1,62 @@
+body {
+    background-image: url('images/carbg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(219, 208, 0);
+    height: 4vw;
+    width: 100vw;
+}
+
+.logopic {
+    height: 3.5vw;
+    width: 3vw;
+    margin-right: .2vw;
+    margin-left: 1vw;
+}
+
+.logo {
+    font-family: Flagfies;
+    font-size: 2vw;
+    color: rgb(0, 0, 0);
+}
+
+.logocapt {
+    font-family: Flagfies;
+    font-style: italic;
+    font-size: .7vw;
+    position: absolute;
+    transform: translate(4.2vw, 2.3vw)
+}
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(.2vw);
+}
+
+.bigpic {
+    margin-left: 1vw;
+    width: 95vw;
+    height: 50vw;
+}
+
+.faq {
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+}
+
+@font-face {
+  font-family: FlagFies;
+  src: url(fonts/Flagfies.ttf);
+}
