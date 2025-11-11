@@ -15,6 +15,9 @@ body {
     background-color: rgb(219, 208, 0);
     height: 4vw;
     width: 100vw;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .logopic {
@@ -47,14 +50,23 @@ body {
 .navbar2 {
     display: flex;
     flex-direction: row;
+    margin-top: 1vw;
+    margin-left: 30vw;
     height: 4vw;
     width: 100vw;
 }
 
 .navbtnlow {
+    font-family: Flagfies;
+    height: 2vw;
+    width: 7vw;
     border-radius: 5vw 5vw 5vw 5vw;
-    background-color: rgb(182, 182, 2);
-    color: white;
+    background-color: rgb(238, 226, 0);
+    font-size: 1vw;
+    color: black;
+    text-align: center;
+    padding-top: .5vw;
+    margin-left: 1vw;
 }
 
 .bigpic {
