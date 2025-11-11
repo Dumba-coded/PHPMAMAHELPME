@@ -20,11 +20,21 @@ body {
     z-index: 10;
 }
 
+.navbtn {
+    font-family: Poppins;
+    font-size: 1vw;
+    font-weight: bold;
+}
+
+.navbtn:hover {
+    border-bottom: .1vw solid rgba(0, 0, 0, 1);
+}
+
 .logopic {
     height: 3.5vw;
     width: 3vw;
     margin-right: .2vw;
-    margin-left: 1vw;
+    margin-left: 1vw;   
 }
 
 .logo {
@@ -51,7 +61,7 @@ body {
     display: flex;
     flex-direction: row;
     margin-top: 1vw;
-    margin-left: 30vw;
+    margin-left: 33vw;
     height: 4vw;
     width: 100vw;
 }
@@ -71,18 +81,44 @@ body {
 
 .bigpic {
     margin-left: 1vw;
-    width: 95vw;
+    width: 97vw;
     height: 30vw;
     margin-top: 1vw;
+    margin-right: 1vw;
 }
 
 .faq {
     display: flex;
     flex-direction: column;
     height: 40vw;
+    width: 97vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    background-color: rgb(238, 226, 0);
+}
+
+.faqhead {
+    font-family: Flagfies;
+    font-size: 1.5vw;
+    text-align: center;
 }
 
 @font-face {
   font-family: FlagFies;
   src: url(fonts/Flagfies.ttf);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(fonts/Poppins-Regular.ttf);
+}
+
+
+@keyframes fadeIn {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
 }
