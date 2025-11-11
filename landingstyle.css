@@ -12,34 +12,46 @@ body {
 .navbar {
     display: flex;
     flex-direction: row;
-    background-color: rgb(219, 208, 0);
-    height: 4vw;
+    background-color: #eee200;
+    height: 6vw;
     width: 100vw;
     position: sticky;
     top: 0;
     z-index: 10;
 }
 
-.navbtn {
+.navbtn, .the {
     font-family: Poppins;
     font-size: 1vw;
     font-weight: bold;
+    border-bottom: .1vw solid transparent; 
+    transition: border-color 0.5s ease; 
+    margin-left: .5vw;
+    margin-top: 4vw;
 }
 
-.navbtn:hover {
-    border-bottom: .1vw solid rgba(0, 0, 0, 1);
+.the:hover {
+    border-bottom: solid .1vw rgba(0, 0, 0, 1); /* fade in */
+}
+
+.barbtns {
+    display: flex;
+    flex-direction: row;
+    margin-left: 60vw
 }
 
 .logopic {
-    height: 3.5vw;
-    width: 3vw;
+    height: 5.5vw;
+    width: 5vw;
     margin-right: .2vw;
-    margin-left: 1vw;   
+    margin-left: 1vw;  
+    margin-top: .1vw; 
 }
 
 .logo {
     font-family: Flagfies;
-    font-size: 2vw;
+    font-size: 2.5vw;
+    margin-top: 1vw;
     color: rgb(0, 0, 0);
 }
 
@@ -48,7 +60,7 @@ body {
     font-style: italic;
     font-size: .7vw;
     position: absolute;
-    transform: translate(4.2vw, 2.3vw)
+    transform: translate(6.5vw, 4vw)
 }
 
 .homepage {
@@ -91,16 +103,16 @@ body {
     display: flex;
     flex-direction: column;
     height: 40vw;
-    width: 97vw;
-    margin-left: 1vw;
-    margin-right: 1vw;
+    width: 100vw;
     background-color: rgb(238, 226, 0);
 }
 
 .faqhead {
-    font-family: Flagfies;
+    font-family: Poppins;
     font-size: 1.5vw;
+    font-weight: 900;
     text-align: center;
+    margin-top: 2vw;
 }
 
 @font-face {
