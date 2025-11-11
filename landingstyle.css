@@ -18,6 +18,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 10;
+    box-shadow:rgba(0, 0, 0, 0.438) .2vw .1vh 1vw 1vw;
 }
 
 .navbtn, .the {
