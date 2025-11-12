@@ -19,7 +19,6 @@ body {
     top: 0;
     z-index: 10;
     box-shadow:rgba(0, 0, 0, 0.438) .2vw .1vh 1vw 1vw;
-
 }
 
 .navbtn, .the {
@@ -42,14 +41,22 @@ a {
 }
 
 .active {
-  color: rgb(0, 0, 0);
   border-bottom: .1vw solid rgb(0, 0, 0);
+}
+
+.login {
+    font-family: Poppins;
+    font-size: 1vw;
+    color: black;
+    font-weight: bold;
+    margin-top: 4vw;
 }
 
 .barbtns {
     display: flex;
     flex-direction: row;
-    margin-left: 60vw
+    margin-left: 23vw;
+    margin-right: 25vw;
 }
 
 .logopic {
@@ -73,6 +80,42 @@ a {
     font-size: .7vw;
     position: absolute;
     transform: translate(6.5vw, 4vw)
+}
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(.5vw);
+}
+
+.navbar2 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1vw;
+    margin-left: 33vw;
+    height: 4vw;
+    width: 100vw;
+}
+
+.navbtnlow {
+    font-family: Flagfies;
+    height: 2vw;
+    width: 7vw;
+    border-radius: 5vw 5vw 5vw 5vw;
+    background-color: rgb(238, 226, 0);
+    font-size: 1vw;
+    color: black;
+    text-align: center;
+    padding-top: .5vw;
+    margin-left: 1vw;
+}
+
+.bigpic {
+    margin-left: 2vw;
+    width: 97vw;
+    height: 30vw;
+    margin-top: 1vw;
+    margin-right: 1vw;
 }
 
 .homepage {

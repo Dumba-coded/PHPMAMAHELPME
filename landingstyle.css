@@ -44,10 +44,19 @@ a {
   border-bottom: .1vw solid rgb(0, 0, 0);
 }
 
+.login {
+    font-family: Poppins;
+    font-size: 1vw;
+    color: black;
+    font-weight: bold;
+    margin-top: 4vw;
+}
+
 .barbtns {
     display: flex;
     flex-direction: row;
-    margin-left: 60vw
+    margin-left: 23vw;
+    margin-right: 25vw;
 }
 
 .logopic {
@@ -102,7 +111,7 @@ a {
 }
 
 .bigpic {
-    margin-left: 1vw;
+    margin-left: 2vw;
     width: 97vw;
     height: 30vw;
     margin-top: 1vw;
