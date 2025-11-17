@@ -1,0 +1,7 @@
+.formbox {
+    display: none;
+}
+
+.formbox.active {
+    display: flex;
+}
