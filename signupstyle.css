@@ -5,3 +5,13 @@
 .formbox.active {
     display: flex;
 }
+
+.errormessage {
+    padding: 1vw;
+    background: #f8d7da;
+    border-radius: .1vw;
+    font-size: 1vw;
+    color: #a42834;
+    text-align: center;
+    margin-bottom: 1vw;
+}

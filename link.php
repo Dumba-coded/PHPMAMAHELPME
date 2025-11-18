@@ -4,7 +4,7 @@
     $password = "";
     $DB = 'CityRideUsers';
 
-    $conn = new mysqli($host, $username, $password, $DB);
+    $conn = new mysqli($servername, $username, $password, $DB);
 
     if ($conn->connect_error) {
         die('Connection failed:' .$conn->connect_error);

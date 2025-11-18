@@ -13,10 +13,10 @@ if (isset($_POST['register'])) {
         $_SESSION['register_error'] = 'Email is already registered.';
         $_SESSION['active_form'] = 'register';
     } else {
-        $conn->query("INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')");
+        $conn->query("INSERT INTO users (`username`, `email`, `password`) VALUES ('$name', '$email', '$password')");
     }
 
-    header("Location: link.php");
+    header("Location: SignUpLogin.php");
     exit();
 
 }
@@ -29,15 +29,14 @@ if (isset($_POST['login'])) {
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
-            $_SESSION['name'] = $user['name'];
+            $_SESSION['name'] = $user['username'];
             $_SESSION['email'] = $user['email'];
         }
     }
 
     $_SESSION['login_error'] = 'Incorrect email or password. Please try again.';
     $_SESSION['active_form'] = 'login';
-    
-    header("Location: link.php");
+    header("Location: SignUpLogin.php");
     exit();
 
 }
