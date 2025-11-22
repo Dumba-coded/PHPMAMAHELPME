@@ -30,6 +30,19 @@ function isActiveForm($formname, $activeform) {
     <link rel="stylesheet" href="signupstyle.css">
 </head>
 <body>
+    <div class="navbar">
+        <img class="logopic" src="images/rentallogo.png"><span class="logo">CityRide</span><span class="logocapt">Your Go-To Rental Service</span>
+        <div class="barbtns">
+            <div class="navbtn"><a class="the" href="Landing.html">Homepage</a></div>
+            <div class="navbtn"><a class="the" href="AboutUs.html">About Us</a></div>
+            <div class="navbtn"><a class="the" href="Catalogue.html">Vehicles</a></div>
+            <div class="navbtn"><a class="the" href="Reviews.html">Reviews</a></div>
+        </div>   
+        <div class="accnt">
+            <div class="login active">Log In / Sign Up</div>
+            <div class="login"></div>
+        </div>
+    </div>
     <div class="formbox <?= isActiveForm('login', $activeform); ?>" id="loginform">
         <form action="regischeck.php" method="post">
             <?= showError($errors['login']); ?> <!-- displays error messages, if any, within the session -->
