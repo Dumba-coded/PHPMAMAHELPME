@@ -133,6 +133,10 @@ a {
   src: url(fonts/Poppins-Regular.ttf);
 }
 
+@font-face { 
+    font-family: Creato;
+    src: url(fonts/CreatoDisplay-Light.otf)
+}
 
 @keyframes fadeIn {
 0% {

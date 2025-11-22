@@ -12,8 +12,9 @@ body {
 .navbar {
     display: flex;
     flex-direction: row;
-    background-color: #eee200;
-    height: 6vw;
+    background-color: #fffff7;
+    border-bottom: solid #eee200 .2vw;
+    height: 4vw;
     width: 100vw;
     position: sticky;
     top: 0;
@@ -22,13 +23,13 @@ body {
 }
 
 .navbtn, .the {
-    font-family: Poppins;
+    font-family: Creato;
     font-size: 1vw;
     font-weight: bold;
     border-bottom: .1vw solid transparent; 
     transition: border-color 0.5s ease; 
     margin-left: .5vw;
-    margin-top: 4vw;
+    margin-top: 2vw;
 }
 
 .the:hover {
@@ -45,7 +46,7 @@ a {
 }
 
 .login {
-    font-family: Poppins;
+    font-family: Creato;
     font-size: 1vw;
     color: black;
     font-weight: bold;
@@ -127,7 +128,7 @@ a {
 }
 
 .faqhead {
-    font-family: Poppins;
+    font-family: Creato;
     font-size: 1.5vw;
     font-weight: 900;
     text-align: center;
@@ -140,8 +141,8 @@ a {
 }
 
 @font-face {
-  font-family: Poppins;
-  src: url(fonts/Poppins-Regular.ttf);
+  font-family: Creato;
+  src: url(fonts/CreatoDisplay-Light.otf);
 }
 
 

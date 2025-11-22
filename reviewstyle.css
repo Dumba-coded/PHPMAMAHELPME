@@ -22,7 +22,7 @@ body {
 }
 
 .navbtn, .the {
-    font-family: Poppins;
+    font-family: Creato;
     font-size: 1vw;
     font-weight: bold;
     border-bottom: .1vw solid transparent; 
@@ -45,7 +45,7 @@ a {
 }
 
 .login {
-    font-family: Poppins;
+    font-family: Creato;
     font-size: 1vw;
     color: black;
     font-weight: bold;
@@ -103,8 +103,8 @@ a {
 }
 
 @font-face {
-  font-family: Poppins;
-  src: url(fonts/Poppins-Regular.ttf);
+  font-family: Creato;
+  src: url(fonts/CreatoDisplay-Light.otf);
 }
 
 
