@@ -1,0 +1,110 @@
+/*
+Source - https://stackoverflow.com/a
+Posted by Alsiro Mira
+Retrieved 2025-11-24, License - CC BY-SA 4.0
+*/
+
+/* CSS styles */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap");
+
+* {
+  margin: 0; /* 0 */
+  padding: 0; /* 0 */
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0rem; /* 0px 20px */
+  height: 100vh;
+  font-family: "Roboto Slab", serif;
+}
+
+.cen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.maincontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  max-width: 20rem; /* 320px */
+}
+
+section {
+  position: relative;
+  margin: 0.9375rem 0rem; /* 15px 0px */
+}
+.title {
+  text-align: center;
+  padding: 1.25rem 0rem 0.625rem 0rem; /* 20px 0px 10px 0px */
+  letter-spacing: 0.125rem; /* 2px */
+}
+.form {
+  margin: 0.625rem 0rem; /* 10px 0px */
+  padding: 2.5rem 1.25rem; /* 40px 20px */
+  width: 100%;
+  max-width: 18.75rem; /* 300px */
+  border-radius: 0.3125rem; /* 5px */
+  box-shadow: 0rem 0rem 0.3125rem 0rem #666; /* 0px 0px 5px 0px */
+  background-color: #fff;
+  box-sizing: border-box;
+}
+h1{
+  margin: 0; /* 0 */
+}
+.input-group {
+  position: relative;
+  margin-bottom: 2.5rem; /* 40px */
+}
+.customerName,
+.contactNumber{
+  position: relative;
+  padding: 0.625rem; /* 10px */
+  width: 100%;
+  max-width: 18.75rem; /* 300px */
+  outline: none;
+  border: 0.0625rem solid black; /* 1px */
+  box-sizing: border-box;
+  font-size: 1.125rem; /* 18px */
+  background:none;
+}
+.placeholder{
+  position: absolute;
+  top: 0.625rem; /* 10px */
+  left: 0.625rem; /* 10px */
+  font-size: 1.125rem; /* 18px */
+  padding: 0rem 0.3125rem; /* 0px 5px */
+  color: #000;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.input:focus + .placeholder{
+  top: -0.625rem; /* -10px */
+  color: #b3ab0b;
+  background-color: #fff;
+  font-size: 1.1875rem; /* 19px */
+}
+.input:not(:placeholder-shown).input:not(:focus)+ .placeholder{
+  top:-0.75rem; /* -12px */
+  left: 0.75rem; /* 12px */
+  color: #04aa6d;
+  background-color: #fff;
+  font-size: 1.125rem; /* 18px */
+  font-weight: 500;
+  transform: scale(0.9) translateY(-0%) translateX(-0.625rem); /* -10px */
+}
+
+.address {
+  padding: 0.625rem; /* 10px */
+  width: 100%;
+  max-width: 18.75rem; /* 300px */
+  outline: none;
+  border: 0.0625rem solid black; /* 1px */
+  font-size: 1.125rem; /* 18px */
+  background: none;
+  resize: none; /* optional: removes drag-corner */
+}
