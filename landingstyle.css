@@ -187,11 +187,10 @@ a {
     transition: 0.4s;
 }
 
-.active, .accordion:hover {
+.accordion.active, .accordion:hover {
   background-color: #ccc;
 }
 
-/* Style the accordion panel. Note: hidden by default */
 .panel {
     margin-left: 9vw;
     margin-right: 5vw;
@@ -210,39 +209,54 @@ a {
     overflow: hidden;
     }
 
-.footer {
-background-color: #1d1c1c;
-color: #fff;
-padding: 2rem 1rem; /* 2rem 1rem */
-margin-top: -5%; /* -5% */
-}
+    .footer {
+      background-color: #222;
+      color: #fff;
+      padding: 2rem 1rem;
+    }
 
-.footer-content {
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-gap: 2rem; /* 2rem */
-max-width: 62.5rem; /* 1000px */
-margin: auto;
-}
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      max-width: 62.5rem;
+      margin: auto;
+    }
 
-.footer-content div {
-flex: 1;
-min-width: 12.5rem; /* 200px */
-}
+    .footer-content div {
+      flex: 1;
+      min-width: 12.5rem;
+    }
 
-.footer-logo {
-width: 3.125rem; /* 50px */
-margin-bottom: 0.5rem; /* 0.5rem */
-}
+    .footer-logo {
+      width: 3.125rem;
+      margin-bottom: 0.5rem;
+    }
 
-.footer-bottom {
-text-align: center;
-margin-top: 2rem; /* 2rem */
-padding-top: 1rem; /* 1rem */
-border-top: 1px solid rgba(255, 255, 255, 0.4);
-font-size: 0.9rem; /* 0.9rem */
-}
+    .footer h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      margin: 0.3rem 0;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.4);
+      font-size: 0.9rem;
+    }
+
 
 
 @font-face {
