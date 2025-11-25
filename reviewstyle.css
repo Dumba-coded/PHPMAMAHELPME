@@ -120,25 +120,26 @@ a {
 }
 
 .heading {
+    font-family: PoppinsBold;
     color: black;
     font-size: 2vw;
-    margin-top: 2vw;
-    margin-left: 37vw;
+    margin-top: 1.5vw;
+    margin-left: 36vw;
 }
 
 .totalstars {
     position: absolute;
     color: black;
-    font-size: 4vw;
+    font-size: 6vw;
     transform: translate(4vw, 6vw)
 }
 
 .contd {
     position: absolute;
     color: black;
-    font-size: 1vw;
-    transform: translate(10vw, 7.8vw);
-    line-height: 1vw;
+    font-size: 1.5vw;
+    transform: translate(12.5vw, 7.8vw);
+    line-height: 1.5vw;
 }
 
 .total {
@@ -217,6 +218,51 @@ a {
 }
 
 
+.ask {
+    font-family: Creato;
+    color: black;
+    font-size: 1vw;
+    margin-left: 5vw;
+    margin-top: 2vw;
+}
+
+.reviewstars {
+    margin-left: 4.8vw;
+    margin-right: 2vw;
+}
+
+.star {
+    font-size: 3vw;
+    color: rgb(109, 109, 109);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.userreview {
+    margin-left: 5vw;
+}
+
+
+/* On hover, color all stars */
+.reviewstars:hover .star {
+    color: #ffc107;
+}
+
+/* Then, un-color the stars after the hovered one */
+.reviewstars .star:hover ~ .star {
+    color: rgb(109, 109, 109);
+}
+
+.reviewstars .star.filled {
+    color: #ffc107;
+}
+
+.reviewstars.rated {
+    cursor: default;
+    pointer-events: none;
+}
+
+
 @font-face {
   font-family: FlagFies;
   src: url(fonts/Flagfies.ttf);
@@ -225,6 +271,11 @@ a {
 @font-face {
   font-family: Creato;
   src: url(fonts/CreatoDisplay-Light.otf);
+}
+
+@font-face {
+  font-family: PoppinsBold;
+  src: url(fonts/Poppins-Bold.ttf);
 }
 
 
