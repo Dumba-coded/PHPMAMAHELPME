@@ -8,47 +8,82 @@
     <link rel="stylesheet" href="footer.css">
 </head>
 <body>
-     <div class="navbar">
+
+    <div class="navbar">
         <img class="logopic" src="images/rentallogo.png"><span class="logo">CityRide</span><span class="logocapt">Your Go-To Rental Service</span>
         <div class="barbtns">
             <div class="navbtn"><a class="the active" href="Landing.html">Homepage</a></div>
             <div class="navbtn"><a class="the" href="AboutUs.html">About Us</a></div>
-            <div class="navbtn"><a class="the" href="Catalogue.html">Vehicles</a></div>
+            <div class="navbtn"><a class="the" href="Catalogue.php">Vehicles</a></div>
             <div class="navbtn"><a class="the" href="Reviews.html">Reviews</a></div>
             <div class="navbtn"><a class="the" href="CityRideProject/booking/booking.php">Bookings</a></div>
-        </div>   
+        </div>     
         <div class="accnt">
-            <div class="login"><a href="login.html">Log In / Sign Up</a></div>
-            <div class="login"><img class="pfp" src="images/emptypfp.png"></div>
+            <div class="accnt">
+                <div class="login-dropdown">
+                    <button class="login-btn">Account ▼</button>
+                    <div class="login-menu">
+                    <a href="CityRideProject/auth/login.php">Log In/ Sign Up</a>
+                    <a href="CityRideProject/Users/update_profile.php">Update Profile</a>
+                    <a href="CityRideProject/auth/logout.php">Log Out</a>
+                    </div>
+                </div>
+                </div>
         </div>
-    </div>
+  </div>
+
     <div class="homepage">
         <div class="bigpic">
             <p class="us">CityRide</p>
         </div>
-        <div class="navbar2">
-                <div class="navbtnlow"><a href="Landing.html">Homepage</a></div>
-                <div class="navbtnlow"><a href="AboutUs.html">About Us</a></div>
-                <div class="navbtnlow"><a href="Catalogue.html">Vehicles</a></div>
-                <div class="navbtnlow"><a href="Reviews.html">Reviews</a></div>
-        </div>
+    
+
+
         <div class="faq">
-            <span class="faqhead">Frequently Asked Questions (FAQ)</span> 
-            <button class="accordion">Section 1</button>
-                <div class="panel">
-                <p>Lorem ipsum...</p>
-                </div>
 
-                <button class="accordion">Section 2</button>
-                <div class="panel">
-                <p>Lorem ipsum...</p>
-                </div>
+<div class="faq-container">
+  <h1>Frequently Asked Questions</h1>
 
-                <button class="accordion">Section 3</button>
-                <div class="panel">
-                <p>Lorem ipsum...</p>
-                </div>
+  <div class="faq-item">
+    <div class="faq-question">1. How do I create an account?</div>
+    <div class="faq-answer">
+      Click "Log In / Sign Up" in the top menu and fill in your username, email, and password.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">2. Do I need to log in to book a vehicle?</div>
+    <div class="faq-answer">
+      Yes. Only registered users can make bookings. If you’re not logged in, you’ll be redirected to the login page.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">3. How do I make a booking?</div>
+    <div class="faq-answer">
+      Log in, go to the Booking page, select vehicle type, dates, optional pickup location, and click "Confirm Booking".
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">4. What types of vehicles are available?</div>
+    <div class="faq-answer">
+      Sedans, SUVs, Motorbikes, and Vans.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">5. How can I contact support?</div>
+    <div class="faq-answer">
+      Email: support@cityride.com | Phone: +60 12-345 6789
+    </div>
+  </div>
+
+</div>
+
         </div>
+
+        
     </div>
 <footer class="footer">
     <div class="footer-content">
@@ -78,6 +113,33 @@
       © 2025 CityRide — All Rights Reserved
     </div>
   </footer>
+
+<script>
+  const questions = document.querySelectorAll('.faq-question');
+  questions.forEach(q => {
+    q.addEventListener('click', () => {
+      const answer = q.nextElementSibling;
+      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+</script>
+
+  <script>
+  const loginDropdown = document.querySelector('.login-dropdown');
+  const loginBtn = document.querySelector('.login-btn');
+
+  loginBtn.addEventListener('click', () => {
+    loginDropdown.classList.toggle('show');
+  });
+
+  // Close the dropdown if clicked outside
+  window.addEventListener('click', function(e) {
+    if (!loginDropdown.contains(e.target)) {
+      loginDropdown.classList.remove('show');
+    }
+  });
+</script>
+
 <script>
 
     let acc = document.getElementsByClassName("accordion");
@@ -99,6 +161,8 @@
   });
 }
 </script>    
+
+
 
 
 </body>

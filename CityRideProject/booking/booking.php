@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="barbtns">
             <div class="navbtn"><a class="the" href="../../Landing.html">Homepage</a></div>
             <div class="navbtn"><a class="the" href="../../AboutUs.html">About Us</a></div>
-            <div class="navbtn"><a class="the" href="../../Catalogue.html">Vehicles</a></div>
+            <div class="navbtn"><a class="the" href="../../Catalogue.php">Vehicles</a></div>
             <div class="navbtn"><a class="the" href="../../Reviews.html">Reviews</a></div>
             <div class="navbtn"><a class="the active" href="booking.php">Bookings</a></div>
         </div>     
