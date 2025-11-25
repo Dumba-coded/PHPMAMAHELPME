@@ -122,17 +122,6 @@ a {
 
 /* Converted to rem with original units commented */
 
-.con {
-    margin: 0; /* 0 */
-    padding: 0; /* 0 */
-    height: 100vh;
-    font-family: "Roboto Slab", serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f2f5;
-    margin-top: -10%; /* -10% */
-}
 
 .container {
   display: flex;

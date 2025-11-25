@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
 
-    $sql = "UPDATE Users SET username='$username', email='$email' WHERE id='$user_id'";
+    $sql = "UPDATE Users SET username='$username', email='$email', phone='$phone' WHERE id='$user_id'";
     if ($conn->query($sql) === TRUE) {
         echo "Profile updated!";
         header("Refresh:1");

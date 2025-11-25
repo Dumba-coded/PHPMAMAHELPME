@@ -189,20 +189,29 @@ $rows = $conn->query("SELECT * FROM bookings WHERE user_id=$uid");
 -- CREATE DATABASE CityRide_db;
 -- USE CityRide_db;
 
--- USERS TABLE
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255),
-    email VARCHAR(255) UNIQUE,
-    password VARCHAR(255)
+btw idk if u also have ot make a bd for it in phpmyadmin or smth but if u do just make a new database named CityRide_db
+
+just paste this in ur MySQL
+is should be ughhhh mysql or utf8_general_ci it default for me if it isn't for u then yep
+
+CREATE TABLE Users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    phone VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- BOOKINGS TABLE
-CREATE TABLE bookings (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    pickup VARCHAR(255),
-    dropoff VARCHAR(255),
-    time DATETIME,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+
+CREATE TABLE Bookings (
+    booking_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    vehicle_type VARCHAR(100) NOT NULL,
+    pickup_date DATE NOT NULL,
+    return_date DATE NOT NULL,
+    pickup_location VARCHAR(255),
+    status VARCHAR(50) DEFAULT 'Pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
