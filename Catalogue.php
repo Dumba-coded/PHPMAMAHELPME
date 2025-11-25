@@ -23,7 +23,7 @@
     <span class="heading">Vehicles Available for Rent</span>
     <div class="middle">
         <div class="middleright">
-            <span class="filterhead">Sort by:</span>
+            <span class="filterhead">Sort by:</span><br>
             <select id="filter" class="filter" onchange="filterContent();">
                 <option value="A">🚘 Cars</option>
                 <option value="B">🚐 Vans</option>
