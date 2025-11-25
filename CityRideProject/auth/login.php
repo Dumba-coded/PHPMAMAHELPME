@@ -66,23 +66,30 @@ if (isset($_POST['signup'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login / Sign Up - CityRide</title>
     <link rel="stylesheet" href="../../login.css">
+    <link rel="stylesheet" href="../../footer.css">
 </head>
 <body>
-
-  <div class="navbar">
-    <img class="logopic" src="../../images/rentallogo.png"><span class="logo">CityRide</span><span class="logocapt">Your Go-To
-      Rental Service</span>
-    <div class="barbtns">
-      <div class="navbtn"><a class="the" href="../../Landing.html">Homepage</a></div>
-      <div class="navbtn"><a class="the" href="../../AboutUs.html">About Us</a></div>
-      <div class="navbtn"><a class="the" href="../../Catalogue.php">Vehicles</a></div>
-      <div class="navbtn"><a class="the" href="../../Reviews.html">Reviews</a></div>
-      <div class="navbtn"><a class="the" href="../booking/booking.php">Bookings</a></div>
-    </div>
-    <div class="accnt">
-      <div class="login active">Log In / Sign Up</div>
-      <div class="login"></div>
-    </div>
+<div class="navbar">
+        <img class="logopic" src="../../images/rentallogo.png"><span class="logo">CityRide</span><span class="logocapt">Your Go-To Rental Service</span>
+        <div class="barbtns">
+            <div class="navbtn"><a class="the" href="../../Landing.html">Homepage</a></div>
+            <div class="navbtn"><a class="the " href="../../AboutUs.html">About Us</a></div>
+            <div class="navbtn"><a class="the" href="../../Catalogue.php">Vehicles</a></div>
+            <div class="navbtn"><a class="the" href="../../Reviews.html">Reviews</a></div>
+            <div class="navbtn"><a class="the" href="../booking/booking.php">Bookings</a></div>
+        </div>     
+        <div class="accnt">
+            <div class="accnt">
+                <div class="login-dropdown">
+                    <button class="login-btn">Account ▼</button>
+                    <div class="login-menu">
+                    <a href="login.php">Log In/ Sign Up</a>
+                    <a href="../users/update_profile.php">Update Profile</a>
+                    <a href="logout.php">Log Out</a>
+                    </div>
+                </div>
+                </div>
+        </div>
   </div>
 
 
@@ -160,6 +167,26 @@ if (isset($_POST['signup'])) {
         © 2025 CityRide — All Rights Reserved
     </div>
 </footer>
+
+
+
+
+  <script>
+  const loginDropdown = document.querySelector('.login-dropdown');
+  const loginBtn = document.querySelector('.login-btn');
+
+  loginBtn.addEventListener('click', () => {
+    loginDropdown.classList.toggle('show');
+  });
+
+  // Close the dropdown if clicked outside
+  window.addEventListener('click', function(e) {
+    if (!loginDropdown.contains(e.target)) {
+      loginDropdown.classList.remove('show');
+    }
+  });
+</script>
+
 
 </body>
 </html>

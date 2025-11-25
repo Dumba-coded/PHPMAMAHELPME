@@ -2,14 +2,12 @@ body {
     background-color: rgb(255, 247, 247);
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 0%;
-    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
     overflow-x: hidden;
 }
-
 
 .navbar {
     display: flex;
@@ -124,17 +122,6 @@ a {
 
 /* Converted to rem with original units commented */
 
-.con {
-    margin: 0; /* 0 */
-    padding: 0; /* 0 */
-    height: 100vh;
-    font-family: "Roboto Slab", serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f2f5;
-    margin-top: -10%; /* -10% */
-}
 
 .container {
   display: flex;
@@ -378,58 +365,3 @@ border-top: 1px solid rgba(255, 255, 255, 0.4);
 font-size: 0.9rem; /* 0.9rem */
 }
 
-
-
-.faq {
-    display: flex;
-    flex-direction: column;
-    height: 40vw;
-    width: 100vw;
-    background-color: rgb(238, 226, 0);
-}
-
-.faqhead {
-    font-family: Creato;
-    font-size: 1.5vw;
-    font-weight: 900;
-    text-align: center;
-    margin-top: 2vw;
-}
-
-.formbox {
-    display: none;
-}
-
-.formbox.active {
-    display: flex;
-}
-
-.errormessage {
-    padding: 1vw;
-    background: #f8d7da;
-    border-radius: .1vw;
-    font-size: 1vw;
-    color: #a42834;
-    text-align: center;
-    margin-bottom: 1vw;
-}
-
-@font-face {
-  font-family: FlagFies;
-  src: url(fonts/Flagfies.ttf);
-}
-
-@font-face {
-  font-family: Creato;
-  src: url(fonts/CreatoDisplay-Light.otf);
-}
-
-
-@keyframes fadeIn {
-0% {
-    opacity: 0;
-}
-100% {
-    opacity: 1;
-}
-}

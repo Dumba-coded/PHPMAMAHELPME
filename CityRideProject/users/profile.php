@@ -27,92 +27,43 @@ if ($result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - CityRide</title>
-    <link rel="stylesheet" href="../../login.css"> <!-- Optional: your own CSS -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background: #fff8e1; /* soft yellow theme */
-        }
-
-        .navbar, .footer {
-            width: 100%;
-            background: #FFD700; /* taxi yellow */
-            padding: 1rem;
-        }
-
-        .navbar a {
-            margin-right: 1rem;
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-        }
-
-        .profile-container {
-            max-width: 700px;
-            margin: 2rem auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .profile-info p {
-            font-size: 1.1rem;
-            margin: 0.5rem 0;
-        }
-
-        .logout-btn {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            background: #f44336;
-            color: white;
-            text-decoration: none;
-            border-radius: 0.3rem;
-        }
-
-    </style>
-</head>
-<body>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login / Sign Up - CityRide</title>
-    <link rel="stylesheet" href="../../profile.css">
+     <link rel="stylesheet" href="../../login.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="../../footer.css">
+    <link rel="stylesheet" href="../../aboutus.css">
+   
 </head>
 <body>
 
-  <div class="navbar">
-    <img class="logopic" src="../../images/rentallogo.png"><span class="logo">CityRide</span><span class="logocapt">Your Go-To
-      Rental Service</span>
-    <div class="barbtns">
-      <div class="navbtn"><a class="the" href="../../Landing.html">Homepage</a></div>
-      <div class="navbtn"><a class="the" href="../../AboutUs.html">About Us</a></div>
-      <div class="navbtn"><a class="the" href="../../Catalogue.html">Vehicles</a></div>
-      <div class="navbtn"><a class="the" href="../../Reviews.html">Reviews</a></div>
-    </div>
-    <div class="accnt">
-      <div class="login active">Log In / Sign Up</div>
-      <div class="login"></div>
-    </div>
+<div class="navbar">
+        <img class="logopic" src="../../images/rentallogo.png"><span class="logo">CityRide</span><span class="logocapt">Your Go-To Rental Service</span>
+        <div class="barbtns">
+            <div class="navbtn"><a class="the" href="../../Landing.html">Homepage</a></div>
+            <div class="navbtn"><a class="the" href="../../AboutUs.html">About Us</a></div>
+            <div class="navbtn"><a class="the" href="../../Catalogue.php">Vehicles</a></div>
+            <div class="navbtn"><a class="the" href="../../Reviews.html">Reviews</a></div>
+            <div class="navbtn"><a class="the active" href="booking.php">Bookings</a></div>
+        </div>     
+        <div class="accnt">
+            <div class="accnt">
+                <div class="login-dropdown">
+                    <button class="login-btn">Account ▼</button>
+                    <div class="login-menu">
+                    <a href="../auth/login.php">Log In/ Sign Up</a>
+                    <a href="update_profile.php">Update Profile</a>
+                    <a href="../auth/logout.php">Log Out</a>
+                    </div>
+                </div>
+                </div>
+        </div>
   </div>
 
 
 </body>
 </html>
 
+<div class="con">
     <!-- Profile Content -->
    <div class="main-content">
         <!-- Your profile content, forms, etc. -->
@@ -122,6 +73,8 @@ if ($result->num_rows > 0) {
             <p><strong>Phone:</strong> <?php echo htmlspecialchars($user['phone']); ?></p>
         </div>
     </div>
+</div>
+
 
 <footer class="footer">
     <div class="footer-content">
@@ -149,5 +102,23 @@ if ($result->num_rows > 0) {
         © 2025 CityRide — All Rights Reserved
     </div>
 </footer>
+
+
+<script>
+  const loginDropdown = document.querySelector('.login-dropdown');
+  const loginBtn = document.querySelector('.login-btn');
+
+  loginBtn.addEventListener('click', () => {
+    loginDropdown.classList.toggle('show');
+  });
+
+  // Close the dropdown if clicked outside
+  window.addEventListener('click', function(e) {
+    if (!loginDropdown.contains(e.target)) {
+      loginDropdown.classList.remove('show');
+    }
+  });
+
+</script>
 </body>
 </html>

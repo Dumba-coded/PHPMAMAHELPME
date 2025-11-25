@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <button class="login-btn">Account ▼</button>
                     <div class="login-menu">
                     <a href="CityRideProject/auth/login.php">Log In/ Sign Up</a>
-                    <a href="CityRideProject/Users/update_profile.php">Update Profile</a>
+                    <a href="../auth/update_profile.php">Update Profile</a>
                     <a href="CityRideProject/auth/logout.php">Log Out</a>
                     </div>
                 </div>
@@ -200,6 +200,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </script>
 <?php endif; ?>
 
+ <script>
+  const loginDropdown = document.querySelector('.login-dropdown');
+  const loginBtn = document.querySelector('.login-btn');
+
+  loginBtn.addEventListener('click', () => {
+    loginDropdown.classList.toggle('show');
+  });
+
+  // Close the dropdown if clicked outside
+  window.addEventListener('click', function(e) {
+    if (!loginDropdown.contains(e.target)) {
+      loginDropdown.classList.remove('show');
+    }
+  });
+</script>
 
 </body>
 </html>
