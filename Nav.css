@@ -1,0 +1,166 @@
+/*
+ <div class="navbar">
+        <img class="logopic" src="images/rentallogo.png"><span class="logo">CityRide</span><span class="logocapt">Your Go-To Rental Service</span>
+        <div class="barbtns">
+            <div class="navbtn"><a class="the" href="Landing.html">Homepage</a></div>
+            <div class="navbtn"><a class="the" href="AboutUs.html">About Us</a></div>
+            <div class="navbtn"><a class="the" href="Catalogue.html">Vehicles</a></div>
+            <div class="navbtn"><a class="the active" href="Reviews.html">Reviews</a></div>
+        </div>     
+        <div class="accnt">
+            <div class="login"><a href="login.html">Log In / Sign Up</a></div>
+            <div class="login"></div>
+        </div>
+    </div>
+*/
+
+html {
+    background-image: url('images/carbg.jpg');  
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body {
+    backdrop-filter: brightness(70%);
+    background: transparent;    
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    background-color: #fffff7;
+    border-bottom: solid #eee200 .2vw;
+    height: 4vw;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow:rgba(0, 0, 0, 0.438) .2vw .1vh .5vw .1vw;
+}
+
+.navbtn, .the {
+    font-family: Creato;
+    font-size: 1vw;
+    font-weight: bold;
+    border-bottom: .1vw solid transparent; 
+    transition: border-color 0.5s ease; 
+    margin-left: 1vw;
+    margin-top: 2vw;
+}
+
+.the:hover {
+    border-bottom: solid .1vw rgba(0, 0, 0, 1); 
+}
+
+a {
+    text-decoration:none;
+    color: inherit;
+}
+
+.active {
+  border-bottom: .1vw solid rgb(0, 0, 0);
+}
+
+.login {
+    font-family: Creato;
+    font-size: 1vw;
+    color: black;
+    font-weight: bold;
+    margin-top: 2vw;
+}
+
+.barbtns {
+    display: flex;
+    flex-direction: row;
+    margin-left: 23vw;
+    margin-right: 25vw;
+}
+
+.logopic {
+    height: 3.5vw;
+    width: 3vw;
+    margin-right: .2vw;
+    margin-left: 2vw;  
+    margin-top: .1vw; 
+}
+
+.logo {
+    font-family: Flagfies;
+    font-style: italic;
+    font-size: 1.7vw;
+    margin-top: .5vw;
+    color: rgb(0, 0, 0);
+}
+
+.logocapt {
+    font-family: Creato;
+    font-style: italic;
+    font-size: .7vw;
+    position: absolute;
+    transform: translate(5vw, 2.5vw)
+}
+
+.reviewtop {
+    display: flex;
+    flex-direction: column;
+    width: 95vw;
+    margin-top: 1vw;
+    margin-left: 2vw;
+    height: 30vw;
+    box-shadow:rgba(0, 0, 0, 0.438) 0vw 0vh .6vw .01vw;
+}
+
+.tp {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    background-color: #ffe88a;
+    width: 95vw;
+    height: 30vw;   
+}
+
+.heading {
+    color: black;
+    font-size: 2vw;
+    margin-top: 2vw;
+    margin-left: 37vw;
+}
+
+.totalstars {
+    position: absolute;
+    color: black;
+    font-size: 4vw;
+    transform: translate(4vw, 6vw)
+}
+
+.contd {
+    position: absolute;
+    color: black;
+    font-size: 1vw;
+    transform: translate(10vw, 7.8vw);
+    line-height: 1vw;
+}
+
+.total {
+    position: absolute;
+    color: black;
+    font-size: 0.5vw;
+    line-height: 0.5vw;
+}
+
+.btm {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: row;
+    background-color: #f5f5f5;
+    width: 100%;
+    width: 95vw;
+    height: 20vw;   
+}

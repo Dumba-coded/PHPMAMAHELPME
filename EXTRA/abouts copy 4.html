@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us – CityRide</title>
-  <link rel="stylesheet" href="abtusstyle.css">
+  <link rel="stylesheet" href="aboutus.css">
   <style>
     /* ------------------------ BODY & BASE ------------------------ */
     body {
@@ -15,45 +15,42 @@
     }
 
     /* ------------------------ NAVBAR ------------------------ */
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      background-color: #ffc928; /* Taxi yellow */
-      color: #222;
-      flex-wrap: wrap;
-    }
 
-    .navbar .logo, .navbar .logocapt {
-      margin-left: 0.5rem;
-      font-weight: bold;
-    }
+.navbar {
+    display: flex;
+    flex-direction: row;
+    background-color: #fffff7;
+    border-bottom: solid #eee200 .2vw;
+    height: 4vw;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow:rgba(0, 0, 0, 0.438) .2vw .1vh .5vw .1vw;
+}
 
-    .barbtns {
-      display: flex;
-      gap: 1rem;
-    }
+.navbtn, .the {
+    font-family: Creato;
+    font-size: 1vw;
+    font-weight: bold;
+    border-bottom: .1vw solid transparent; 
+    transition: border-color 0.5s ease; 
+    margin-left: 1vw;
+    margin-top: 2vw;
+}
 
-    .barbtns a {
-      text-decoration: none;
-      color: #222;
-      font-weight: 600;
-      padding: 0.3rem 0.5rem;
-      transition: background 0.2s;
-    }
+.the:hover {
+    border-bottom: solid .1vw rgba(0, 0, 0, 1); 
+}
 
-    .barbtns a.active, .barbtns a:hover {
-      background-color: #fff7d6;
-      border-radius: 0.4rem;
-    }
+a {
+    text-decoration:none;
+    color: inherit;
+}
 
-    .accnt .login a {
-      text-decoration: none;
-      color: #222;
-      font-weight: 600;
-    }
-
+.active {
+  border-bottom: .1vw solid rgb(0, 0, 0);
+}
     /* ------------------------ ABOUT CONTAINER ------------------------ */
     .about-container {
       max-width: 1000px;
@@ -194,20 +191,17 @@
 
   <!-- Navbar -->
   <div class="navbar">
-    <div class="brand">
-      <img class="logopic" src="images/rentallogo.png" alt="CityRide Logo" width="50">
-      <span class="logo">CityRide</span>
-      <span class="logocapt">Your Go-To Rental Service</span>
-    </div>
-    <div class="barbtns">
-      <a href="Landing.html">Homepage</a>
-      <a class="active" href="AboutUs.html">About Us</a>
-      <a href="Catalogue.html">Vehicles</a>
-      <a href="Reviews.html">Reviews</a>
-    </div>
-    <div class="accnt">
-      <div class="login"><a href="SignUpLogin.php">Log In / Sign Up</a></div>
-    </div>
+        <img class="logopic" src="images/rentallogo.png"><span class="logo">CityRide</span><span class="logocapt">Your Go-To Rental Service</span>
+        <div class="barbtns">
+            <div class="navbtn"><a class="the" href="Landing.html">Homepage</a></div>
+            <div class="navbtn"><a class="the active" href="AboutUs.html">About Us</a></div>
+            <div class="navbtn"><a class="the" href="Catalogue.html">Vehicles</a></div>
+            <div class="navbtn"><a class="the" href="Reviews.html">Reviews</a></div>
+        </div>     
+        <div class="accnt">
+            <div class="login"><a href="login.html">Log In / Sign Up</a></div>
+            <div class="login"></div>
+        </div>
   </div>
 
   <!-- About Section -->
