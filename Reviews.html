@@ -67,9 +67,8 @@
                 <span class="star" data-value="3">&#9734;</span>
                 <span class="star" data-value="4">&#9734;</span>
                 <span class="star" data-value="5">&#9734;</span>
-                <textarea class="userreview"></textarea>
-
             </div>
+            <input type="text" name="usertext" id="usertext">
         </div>
         <div class="reviewbottom">
 
@@ -106,11 +105,39 @@
                 
                 /* fills stars when page loads */
                 totalStars(container, averageRating);
+                if (!container.classList.contains('rated')) {
+                    const stars = container.querySelectorAll('.star')
+                    for(let star of stars){
+                        star.addEventListener('click', function() { /* click is placed inside the if statement to make sure it can only be done with 'rated' is NOT added as a class */
+                            const value = parseInt(this.dataset.value); /* get value of star that was clicked */
 
-                if (finishedRatings[rating]){
-                    container.classList.add('rated');
-                } /* only allows user to rate once, as the rating css style disables clicks */
-                
+                            totalStars(container, value);
+
+                            finishedRatings[rating] = value;
+                            localStorage.setItem(storageKey, JSON.stringify(finishedRatings));
+
+                            container.classList.add('rated'); /* disables after user rates */
+
+                            /* to send the user's rating to the server */
+                            fetch('rate.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    userReview: userReview,
+                                    rating: value
+                                })
+                            })
+
+                            .then(response => response.json()) /* fetches response from rate.php */
+                            .then(data => {
+                                console.log('Server response:', data); /* fetches data to convert into js object */
+                            })
+                        });
+                    }
+                }
+
             }
         });
 </script>

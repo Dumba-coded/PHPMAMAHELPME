@@ -238,17 +238,14 @@ a {
     transition: color 0.2s;
 }
 
-.userreview {
+.usertext {
     margin-left: 5vw;
 }
 
-
-/* On hover, color all stars */
 .reviewstars:hover .star {
     color: #ffc107;
 }
 
-/* Then, un-color the stars after the hovered one */
 .reviewstars .star:hover ~ .star {
     color: rgb(109, 109, 109);
 }
