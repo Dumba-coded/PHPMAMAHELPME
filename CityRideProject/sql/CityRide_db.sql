@@ -1,7 +1,6 @@
 
 --   CITYRIDE DATABASE
 
-
 CREATE DATABASE IF NOT EXISTS CityRide_db;
 USE CityRide_db;
 
