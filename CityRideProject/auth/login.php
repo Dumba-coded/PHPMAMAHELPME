@@ -65,26 +65,31 @@ if (isset($_POST['signup'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login / Sign Up - CityRide</title>
-    <link rel="stylesheet" href="login2.css">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../../login.css">
 </head>
 <body>
 
-<div class="navbar">
-    <img class="logopic" src="images/rentallogo.png">
-    <span class="logo">CityRide</span>
-    <span class="logocapt">Your Go-To Rental Service</span>
+  <div class="navbar">
+    <img class="logopic" src="../../images/rentallogo.png"><span class="logo">CityRide</span><span class="logocapt">Your Go-To
+      Rental Service</span>
     <div class="barbtns">
-        <div class="navbtn"><a class="the" href="../Landing.html">Homepage</a></div>
-        <div class="navbtn"><a class="the" href="../AboutUs.html">About Us</a></div>
-        <div class="navbtn"><a class="the" href="../Catalogue.html">Vehicles</a></div>
-        <div class="navbtn"><a class="the" href="../Reviews.html">Reviews</a></div>
+      <div class="navbtn"><a class="the" href="../../Landing.html">Homepage</a></div>
+      <div class="navbtn"><a class="the" href="../../AboutUs.html">About Us</a></div>
+      <div class="navbtn"><a class="the" href="../../Catalogue.html">Vehicles</a></div>
+      <div class="navbtn"><a class="the" href="../../Reviews.html">Reviews</a></div>
     </div>
-</div>
+    <div class="accnt">
+      <div class="login active">Log In / Sign Up</div>
+      <div class="login"></div>
+    </div>
+  </div>
+
+
+
 
 <div class="con">
     <div class="container">
-        <div class="sec1">
+    
             <div class="wrapper">
                 <div class="card-switch">
                     <label class="switch">
@@ -121,7 +126,7 @@ if (isset($_POST['signup'])) {
                     </label>
                 </div>
             </div>
-        </div>
+        
         
     </div>
 </div>
@@ -129,7 +134,7 @@ if (isset($_POST['signup'])) {
 <footer class="footer">
     <div class="footer-content">
         <div class="footer-left">
-            <img src="images/rentallogo.png" class="footer-logo">
+            <img src="../../images/rentallogo.png" class="footer-logo">
             <h3>CityRide</h3>
             <p>Your Go-To Rental Service</p>
         </div>
