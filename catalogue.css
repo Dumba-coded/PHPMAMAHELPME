@@ -28,8 +28,9 @@ body {
     font-weight: bold;
     border-bottom: .1vw solid transparent; 
     transition: border-color 0.5s ease; 
-    margin-left: .5vw;
+    margin-left: 1vw;
     margin-top: 2vw;
+    transform: translate(2vw)
 }
 
 .the:hover {
@@ -51,6 +52,15 @@ a {
     color: black;
     font-weight: bold;
     margin-top: 2vw;
+    transform: translate(2vw)
+}
+
+.pfp {
+    position: absolute;
+    height: 2.5vw;
+    width: 2.5vw;
+    border-radius: 25vw;
+    transform: translate(7.5vw, -4.1vw)   
 }
 
 .barbtns {
@@ -84,41 +94,47 @@ a {
     transform: translate(5vw, 2.5vw)
 }
 
-.homepage {
-    display: flex;
-    flex-direction: column;
-    backdrop-filter: blur(.5vw);
-}
-
-.navbar2 {
-    display: flex;
-    flex-direction: row;
-    margin-top: 1vw;
-    margin-left: 33vw;
-    height: 4vw;
-    width: 100vw;
-}
-
-.navbtnlow {
-    font-family: Flagfies;
-    height: 2vw;
-    width: 7vw;
-    border-radius: 5vw 5vw 5vw 5vw;
-    background-color: rgb(238, 226, 0);
-    font-size: 1vw;
+.filter {
+    font-family: Creato;
     color: black;
-    text-align: center;
-    padding-top: .5vw;
-    margin-left: 1vw;
+    transform: translate(-50vw)
 }
 
-.bigpic {
-    margin-left: 2vw;
-    width: 97vw;
-    height: 30vw;
-    margin-top: 1vw;
-    margin-right: 1vw;
+.footer {
+background-color: #1d1c1c;
+color: #fff;
+padding: 2rem 1rem; /* 2rem 1rem */
+margin-top: -5%; /* -5% */
 }
+
+.footer-content {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+gap: 2rem; /* 2rem */
+max-width: 62.5rem; /* 1000px */
+margin: auto;
+}
+
+.footer-content div {
+flex: 1;
+min-width: 12.5rem; /* 200px */
+}
+
+.footer-logo {
+width: 3.125rem; /* 50px */
+margin-bottom: 0.5rem; /* 0.5rem */
+}
+
+.footer-bottom {
+text-align: center;
+margin-top: 2rem; /* 2rem */
+padding-top: 1rem; /* 1rem */
+border-top: 1px solid rgba(255, 255, 255, 0.4);
+font-size: 0.9rem; /* 0.9rem */
+}
+
+
 @font-face {
   font-family: FlagFies;
   src: url(fonts/Flagfies.ttf);

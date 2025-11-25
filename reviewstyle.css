@@ -222,12 +222,19 @@ a {
     font-family: Creato;
     color: black;
     font-size: 1vw;
-    margin-left: 5vw;
-    margin-top: 2vw;
+    margin-left: 7.5vw;
+    margin-top: 2vw;   
+}
+
+.usertext {
+    position: absolute;
+    transform: translate(20vw, 2vw);
+    width: 60vw;
+    height: 5vw;
 }
 
 .reviewstars {
-    margin-left: 4.8vw;
+    margin-left: 7vw;
     margin-right: 2vw;
 }
 

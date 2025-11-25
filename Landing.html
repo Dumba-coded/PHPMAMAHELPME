@@ -16,24 +16,88 @@
             <div class="navbtn"><a class="the" href="Reviews.html">Reviews</a></div>
         </div>   
         <div class="accnt">
-            <div class="login"><a href="CityRideProject/auth/login.php">Log In / Sign Up</a></div>
-            <div class="login"></div>
+            <div class="login"><a href="login.html">Log In / Sign Up</a></div>
+            <div class="login"><img class="pfp" src="images/emptypfp.png"></div>
         </div>
     </div>
     <div class="homepage">
-        <img class="bigpic" src="images/landingpic.jpg">
+        <div class="bigpic">
+            <p class="us">CityRide</p>
+        </div>
         <div class="navbar2">
-                <div class="navbtnlow">Homepage</div>
-                <div class="navbtnlow">About Us</div>
-                <div class="navbtnlow">Vehicles</div>
-                <div class="navbtnlow">Reviews</div>
+                <div class="navbtnlow"><a href="Landing.html">Homepage</a></div>
+                <div class="navbtnlow"><a href="AboutUs.html">About Us</a></div>
+                <div class="navbtnlow"><a href="Catalogue.html">Vehicles</a></div>
+                <div class="navbtnlow"><a href="Reviews.html">Reviews</a></div>
         </div>
         <div class="faq">
             <span class="faqhead">Frequently Asked Questions (FAQ)</span> 
+            <button class="accordion">Section 1</button>
+                <div class="panel">
+                <p>Lorem ipsum...</p>
+                </div>
+
+                <button class="accordion">Section 2</button>
+                <div class="panel">
+                <p>Lorem ipsum...</p>
+                </div>
+
+                <button class="accordion">Section 3</button>
+                <div class="panel">
+                <p>Lorem ipsum...</p>
+                </div>
         </div>
     </div>
+  <footer class="footer">
+  <div class="footer-content">
+
+    <div class="footer-left">
+      <img src="images/rentallogo.png" class="footer-logo">
+      <h3>CityRide</h3>
+      <p>Your Go-To Rental Service</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <P><a href="Landing.html">Homepage</a></P>
+      <P><a href="AboutUs.html">About Us</a></P>
+      <P><a href="Catalogue.html">Vehicles</a></P>
+      <P><a href="Reviews.html">Reviews</a></P>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>Email: support@cityride.com</p>
+      <p>Phone: +60 12-345 6789</p>
+      <p>Address: Kuala Lumpur, Malaysia</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 CityRide — All Rights Reserved
+  </div>
+</footer>
 <script>
-    function signIn(){  }
+
+    let acc = document.getElementsByClassName("accordion");
+    let i;
+
+    for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    let panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
 </script>    
 
 

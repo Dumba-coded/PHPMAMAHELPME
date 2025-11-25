@@ -17,7 +17,46 @@
         </div>   
         <div class="accnt">
             <div class="login"><a href="CityRideProject/auth/login.php">Log In / Sign Up</a></div>
-            <div class="login"></div>
+            <div class="login"><img class="pfp" src="images/emptypfp.png"></div>
         </div>
+        <div class="middle">
+        <select id="filter" class="filter" onchange="filterContent();">
+            <option value="A">All content</option>
+            <option value="B">Some content</option>
+            <option value="C">Little content</option>
+        </select>
+
+        <div id="cars">
+            CARS
+        </div>
+        <div id="vans">
+            VANS
+        </div>
+        <div id="trucks">
+            TRUCKS
+        </div>
+        </div>
+
 </body>
+<script>
+    function filterContent() {
+    var user = document.getElementById("filter").value;
+    var cars = document.getElementById("cars");
+    var vans = document.getElementById("vans");
+    var trucks = document.getElementById("trucks");
+    if(user=="A") {
+        cars.style.display="block";
+        vans.style.display="none";
+        trucks.style.display="block";
+    } else if (user=="B") {
+        cars.style.display="none";
+        vans.style.display="block";
+        trucks.style.display="block";
+    } else if (user=="C") {
+        cars.style.display="none";
+        vans.style.display="none";
+        trucks.style.display="block";
+    }
+}
+</script>
 </html>
