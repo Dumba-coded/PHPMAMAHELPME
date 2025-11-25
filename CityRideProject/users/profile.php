@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - CityRide</title>
-    <link rel="stylesheet" href="../css/profile.css"> <!-- Optional: your own CSS -->
+    <link rel="stylesheet" href="../../login.css"> <!-- Optional: your own CSS -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -80,38 +80,74 @@ if ($result->num_rows > 0) {
             border-radius: 0.3rem;
         }
 
-        .footer {
-            text-align: center;
-            margin-top: 2rem;
-            font-size: 0.9rem;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <div class="navbar">
-        <a href="../Landing.html">Homepage</a>
-        <a href="../AboutUs.html">About Us</a>
-        <a href="../Catalogue.html">Vehicles</a>
-        <a href="../Reviews.html">Reviews</a>
-        <span style="float:right;"><a href="../auth/logout.php" class="logout-btn">Logout</a></span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up - CityRide</title>
+    <link rel="stylesheet" href="../../profile.css">
+</head>
+<body>
+
+  <div class="navbar">
+    <img class="logopic" src="../../images/rentallogo.png"><span class="logo">CityRide</span><span class="logocapt">Your Go-To
+      Rental Service</span>
+    <div class="barbtns">
+      <div class="navbtn"><a class="the" href="../../Landing.html">Homepage</a></div>
+      <div class="navbtn"><a class="the" href="../../AboutUs.html">About Us</a></div>
+      <div class="navbtn"><a class="the" href="../../Catalogue.html">Vehicles</a></div>
+      <div class="navbtn"><a class="the" href="../../Reviews.html">Reviews</a></div>
     </div>
+    <div class="accnt">
+      <div class="login active">Log In / Sign Up</div>
+      <div class="login"></div>
+    </div>
+  </div>
+
+
+</body>
+</html>
 
     <!-- Profile Content -->
-    <div class="profile-container">
-        <h1>Welcome, <?php echo htmlspecialchars($user['username']); ?>!</h1>
-
-        <div class="profile-info">
+   <div class="main-content">
+        <!-- Your profile content, forms, etc. -->
+        <div class="profile-container">
+            <h1>Welcome, <?php echo htmlspecialchars($user['username']); ?>!</h1>
             <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
             <p><strong>Phone:</strong> <?php echo htmlspecialchars($user['phone']); ?></p>
         </div>
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        © 2025 CityRide — All Rights Reserved
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-left">
+            <img src="../../images/rentallogo.png" class="footer-logo">
+            <h3>CityRide</h3>
+            <p>Your Go-To Rental Service</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <p><a href="../Landing.html">Homepage</a></p>
+            <p><a href="../AboutUs.html">About Us</a></p>
+            <p><a href="../Catalogue.html">Vehicles</a></p>
+            <p><a href="../Reviews.html">Reviews</a></p>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <p>Email: support@cityride.com</p>
+            <p>Phone: +60 12-345 6789</p>
+            <p>Address: Kuala Lumpur, Malaysia</p>
+        </div>
     </div>
 
+    <div class="footer-bottom">
+        © 2025 CityRide — All Rights Reserved
+    </div>
+</footer>
 </body>
 </html>
