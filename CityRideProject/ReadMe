@@ -1,0 +1,121 @@
+# 🚗 CITYRIDE — PHP + MySQL Rental Booking System
+
+CityRide is a simple rental management system created using:
+- PHP
+- MySQL
+- phpMyAdmin
+- XAMPP/WAMP
+
+This README explains how to install, set up, and run the project.
+
+---
+
+# 📌 1. REQUIREMENTS
+- XAMPP or WAMP installed
+- phpMyAdmin enabled
+- A web browser
+- VS Code or similar editor
+
+---
+
+# 📌 2. INSTALLATION
+
+### STEP 1 — Download or clone the project into:
+htdocs/CityRide/
+
+Example:
+C:/xampp/htdocs/CityRide/
+
+---
+
+# 📌 3. DATABASE SETUP
+
+### STEP 1 — Open phpMyAdmin
+Go to:
+http://localhost/phpmyadmin/
+
+### STEP 2 — Import the SQL file
+1. Click **Import**
+2. Choose the file: `sql/cityride_db.sql`
+3. Click **Go**
+
+This will automatically create:
+- Database: CityRide_db
+- Tables:
+  - Users
+  - Bookings
+
+---
+
+# 📌 4. PHP FILES
+
+### db.php
+Handles database connection.  
+Located in the root folder.
+
+### auth/
+- register.php → creates new users  
+- login.php → logs users in  
+- logout.php → destroys session  
+
+### user/
+- profile.php → shows user details  
+- update_profile.php → updates user info  
+
+### booking/
+- book.php → booking form  
+- insert_booking.php → saves booking  
+- my_bookings.php → user booking history  
+
+---
+
+# 📌 5. HOW TO RUN
+
+Open this URL:
+
+http://localhost/CityRide/
+
+---
+
+# 📌 6. HOW TO LOGIN
+
+After registering, your info is stored in the MySQL database.
+Passwords are stored hashed.
+
+---
+
+# 📌 7. NOTES
+- Make sure Apache & MySQL are running in XAMPP.
+- If the database does not connect, check:
+  - db.php
+  - database name
+  - username/password (root / empty)
+
+---
+
+# 🎉 You're all set!
+CityRide is now ready to use.
+
+
+
+
+
+$stmt = $conn->prepare("INSERT INTO Users (username, email, password) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $username, $email, $password);
+$stmt->execute();
+
+
+
+$username = $_POST['username'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+$sql = "INSERT INTO Users (username, email, password) VALUES ('$username', '$email', '$password')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Registered successfully!";
+} else {
+    echo "Error: " . $conn->error;
+}
+
+

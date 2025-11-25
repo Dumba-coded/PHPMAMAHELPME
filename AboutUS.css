@@ -1,0 +1,248 @@
+body {
+    background-color: rgb(255, 247, 247);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.login {
+    font-family: Creato;
+    font-size: 1vw;
+    color: black;
+    font-weight: bold;
+    margin-top: 2vw;
+}
+
+.barbtns {
+    display: flex;
+    flex-direction: row;
+    margin-left: 23vw;
+    margin-right: 25vw;
+}
+
+.logopic {
+    height: 3.5vw;
+    width: 3vw;
+    margin-right: .2vw;
+    margin-left: 2vw;  
+    margin-top: .1vw; 
+}
+
+.logo {
+    font-family: Flagfies;
+    font-style: italic;
+    font-size: 1.7vw;
+    margin-top: .5vw;
+    color: rgb(0, 0, 0);
+}
+
+.logocapt {
+    font-family: Creato;
+    font-style: italic;
+    font-size: .7vw;
+    position: absolute;
+    transform: translate(5vw, 2.5vw)
+}
+
+@font-face {
+  font-family: FlagFies;
+  src: url(fonts/Flagfies.ttf);
+}
+
+@font-face {
+  font-family: Creato;
+  src: url(fonts/CreatoDisplay-Light.otf);
+}
+
+
+@keyframes fadeIn {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+    /* ------------------------ BODY & BASE ------------------------ */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    line-height: 1.6;
+}
+
+    /* ------------------------ NAVBAR ------------------------ */
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    background-color: #fffff7;
+    border-bottom: solid #eee200 .2vw;
+    height: 4vw;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow:rgba(0, 0, 0, 0.438) .2vw .1vh .5vw .1vw;
+}
+
+.navbtn, .the {
+    font-family: Creato;
+    font-size: 1vw;
+    font-weight: bold;
+    border-bottom: .1vw solid transparent; 
+    transition: border-color 0.5s ease; 
+    margin-left: 1vw;
+    margin-top: 2vw;
+}
+
+.the:hover {
+    border-bottom: solid .1vw rgba(0, 0, 0, 1); 
+}
+
+a {
+    text-decoration:none;
+    color: inherit;
+}
+
+.active {
+  border-bottom: .1vw solid rgb(0, 0, 0);
+}
+    /* ------------------------ ABOUT CONTAINER ------------------------ */
+    .about-container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 2rem 2.5rem;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .about-container h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #222;
+    }
+
+    .intro {
+      font-size: 1.1rem;
+      color: #333;
+      background: #fff7d6;
+      padding: 1rem;
+      border-radius: 0.6rem;
+      border-left: 5px solid #ffc928;
+      display: inline-block;
+    }
+
+    .section {
+      margin-top: 2rem;
+    }
+
+    .section h2 {
+      color: #222;
+      border-left: 6px solid #ffc928;
+      padding-left: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .section p {
+      background: #fffbea;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+
+    /* ------------------------ TEAM ------------------------ */
+    .team-grid {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .team-card {
+      background: #ffc928;
+      color: #222;
+      width: 40%;
+      min-width: 220px;
+      border-radius: 0.8rem;
+      padding: 1.2rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    }
+
+    .team-card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    /* ------------------------ FOOTER ------------------------ */
+    .footer {
+      background-color: #222;
+      color: #fff;
+      padding: 2rem 1rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      max-width: 62.5rem;
+      margin: auto;
+    }
+
+    .footer-content div {
+      flex: 1;
+      min-width: 12.5rem;
+    }
+
+    .footer-logo {
+      width: 3.125rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      margin: 0.3rem 0;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.4);
+      font-size: 0.9rem;
+    }
+
+    /* ------------------------ RESPONSIVE ------------------------ */
+    @media (max-width: 700px) {
+      .team-card {
+        width: 100%;
+      }
+
+      .barbtns {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+    }
