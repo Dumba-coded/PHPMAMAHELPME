@@ -35,6 +35,7 @@ body {
     transition: border-color 0.5s ease; 
     margin-left: 1vw;
     margin-top: 2vw;
+    transform: translate(2vw)
 }
 
 .the:hover {
@@ -56,6 +57,15 @@ a {
     color: black;
     font-weight: bold;
     margin-top: 2vw;
+    transform: translate(2vw)
+}
+
+.pfp {
+    position: absolute;
+    height: 2.5vw;
+    width: 2.5vw;
+    border-radius: 25vw;
+    transform: translate(7.5vw, -4.1vw)   
 }
 
 .barbtns {
@@ -190,6 +200,7 @@ a {
 }
 
 .reviewmiddle {
+    background-color: rgb(247, 247, 247);
     display: flex;
     flex-direction: column;
     width: 95vw;
