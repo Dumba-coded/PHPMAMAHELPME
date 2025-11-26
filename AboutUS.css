@@ -76,7 +76,6 @@ body {
 }
 
     /* ------------------------ NAVBAR ------------------------ */
-
 .navbar {
     display: flex;
     flex-direction: row;
@@ -97,7 +96,8 @@ body {
     border-bottom: .1vw solid transparent; 
     transition: border-color 0.5s ease; 
     margin-left: 1vw;
-    margin-top: 2vw;
+    margin-top: 1.8vw;
+    transform: translate(2vw)
 }
 
 .the:hover {
@@ -111,6 +111,54 @@ a {
 
 .active {
   border-bottom: .1vw solid rgb(0, 0, 0);
+}
+
+.login {
+    font-family: Creato;
+    font-size: 1vw;
+    color: black;
+    font-weight: bold;
+    margin-top: 2vw;
+    transform: translate(2vw)
+}
+
+.pfp {
+    position: absolute;
+    height: 2.5vw;
+    width: 2.5vw;
+    border-radius: 25vw;
+    transform: translate(7.5vw, -4.1vw)   
+}
+
+.barbtns {
+    display: flex;
+    flex-direction: row;
+    margin-left: 23vw;
+    margin-right: 25vw;
+}
+
+.logopic {
+    height: 3.5vw;
+    width: 3vw;
+    margin-right: .2vw;
+    margin-left: 2vw;  
+    margin-top: .1vw; 
+}
+
+.logo {
+    font-family: Flagfies;
+    font-style: italic;
+    font-size: 1.7vw;
+    margin-top: .5vw;
+    color: rgb(0, 0, 0);
+}
+
+.logocapt {
+    font-family: Creato;
+    font-style: italic;
+    font-size: .7vw;
+    position: absolute;
+    transform: translate(5vw, 2.5vw)
 }
     /* ------------------------ ABOUT CONTAINER ------------------------ */
     .about-container {
