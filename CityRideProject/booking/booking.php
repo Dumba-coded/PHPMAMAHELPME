@@ -9,31 +9,38 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
+// Get user info
 $userQuery = $conn->prepare("SELECT username, email, phone FROM Users WHERE user_id = ?");
 $userQuery->bind_param("i", $user_id);
 $userQuery->execute();
 $userResult = $userQuery->get_result();
 $user = $userResult->fetch_assoc();
 
+// Get list of available cars
+$carsResult = $conn->query("SELECT car_id, vehicle_type, model FROM Cars WHERE available = 1 ORDER BY vehicle_type, model");
+
 $bookingDone = false;
 $jsMessage = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $vehicle = $_POST['vehicle'];
+    $car_id = $_POST['car_id'];
     $pickup_date = $_POST['pickup_date'];
     $return_date = $_POST['return_date'];
     $pickup_location = $_POST['pickup_location'] ?? null;
 
     $stmt = $conn->prepare("
-        INSERT INTO Bookings (user_id, vehicle_type, pickup_date, return_date, pickup_location, status)
+        INSERT INTO Bookings (user_id, car_id, pickup_date, return_date, pickup_location, status)
         VALUES (?, ?, ?, ?, ?, 'Pending')
     ");
-    $stmt->bind_param("issss", $user_id, $vehicle, $pickup_date, $return_date, $pickup_location);
+    $stmt->bind_param("iisss", $user_id, $car_id, $pickup_date, $return_date, $pickup_location);
 
     if ($stmt->execute()) {
         $jsMessage = "Booking confirmed!";
         $bookingDone = true;
+
+        // Optionally mark car as unavailable
+        $conn->query("UPDATE Cars SET available = 0 WHERE car_id = $car_id");
     } else {
         $jsMessage = "Error: " . $stmt->error;
     }
@@ -109,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <button class="login-btn">Account ▼</button>
                     <div class="login-menu">
                     <a href="CityRideProject/auth/login.php">Log In/ Sign Up</a>
-                    <a href="CityRideProject/Users/update_profile.php">Update Profile</a>
+                    <a href="../auth/update_profile.php">Update Profile</a>
                     <a href="CityRideProject/auth/logout.php">Log Out</a>
                     </div>
                 </div>
@@ -133,13 +140,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form method="POST" <?= $bookingDone ? 'onsubmit="return false;"' : '' ?>>
         <label>Choose a Vehicle</label>
-        <select name="vehicle" required>
-            <option value="">-- Select Vehicle --</option>
-            <option value="Sedan">Sedan</option>
-            <option value="SUV">SUV</option>
-            <option value="Motorbike">Motorbike</option>
-            <option value="Van">Van</option>
-        </select>
+<select name="car_id" required>
+    <option value="">-- Select Vehicle --</option>
+    <?php while($car = $carsResult->fetch_assoc()): ?>
+        <option value="<?= $car['car_id'] ?>">
+            <?= htmlspecialchars($car['vehicle_type'] . ' - ' . $car['model']) ?>
+        </option>
+    <?php endwhile; ?>
+</select>
 
         <label>Pickup Date</label>
         <input type="date" name="pickup_date" required>
@@ -192,6 +200,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </script>
 <?php endif; ?>
 
+ <script>
+  const loginDropdown = document.querySelector('.login-dropdown');
+  const loginBtn = document.querySelector('.login-btn');
+
+  loginBtn.addEventListener('click', () => {
+    loginDropdown.classList.toggle('show');
+  });
+
+  // Close the dropdown if clicked outside
+  window.addEventListener('click', function(e) {
+    if (!loginDropdown.contains(e.target)) {
+      loginDropdown.classList.remove('show');
+    }
+  });
+</script>
 
 </body>
 </html>

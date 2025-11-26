@@ -39,80 +39,39 @@ $user = $result->fetch_assoc();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - CityRide</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-            margin: 0;
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .profile-container {
-            background-color: #ffffff;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
-            width: 90%;
-            max-width: 30rem;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        input[type="text"],
-        input[type="email"] {
-            width: 100%;
-            padding: 0.75rem;
-            margin-bottom: 1rem;
-            border-radius: 0.5rem;
-            border: 1px solid #ccc;
-            font-size: 1rem;
-        }
-
-        button {
-            width: 100%;
-            padding: 0.75rem;
-            background-color: #eee200;
-            border: none;
-            border-radius: 0.5rem;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #d4c300;
-        }
-
-        .message {
-            text-align: center;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: green;
-        }
-
-        .error {
-            color: red;
-        }
-    </style>
+     <link rel="stylesheet" href="../../aboutus.css">
+  <link rel="stylesheet" href="../../footer.css">
+  <link rel="stylesheet" href="profile.css">
+    
 </head>
 <body>
-    <div class="profile-container">
+
+  <!-- Navbar -->
+  <div class="navbar">
+        <img class="logopic" src="../../images/rentallogo.png"><span class="logo">CityRide</span><span class="logocapt">Your Go-To Rental Service</span>
+        <div class="barbtns">
+            <div class="navbtn"><a class="the" href="../../Landing.html">Homepage</a></div>
+            <div class="navbtn"><a class="the" href="../../AboutUs.html">About Us</a></div>
+            <div class="navbtn"><a class="the" href="../../Catalogue.php">Vehicles</a></div>
+            <div class="navbtn"><a class="the" href="../../Reviews.html">Reviews</a></div>
+            <div class="navbtn"><a class="the active" href="booking.php">Bookings</a></div>
+        </div>     
+        <div class="accnt">
+            <div class="accnt">
+                <div class="login-dropdown">
+                    <button class="login-btn">Account ▼</button>
+                    <div class="login-menu">
+                    <a href="../auth/login.php">Log In/ Sign Up</a>
+                    <a href="auth/update_profile.php">Update Profile</a>
+                    <a href="../auth/logout.php">Log Out</a>
+                    </div>
+                </div>
+                </div>
+        </div>
+  </div>
+
+<div class="con">
+ <div class="profile-container">
         <h2>Your Profile</h2>
 
         <?php if(isset($update_message)) { echo "<div class='message'>{$update_message}</div>"; } ?>
@@ -130,7 +89,53 @@ $user = $result->fetch_assoc();
 
             <button type="submit">Update Profile</button>
         </form>
+        </div>
+</div>
+   <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <img src="../../images/rentallogo.png" class="footer-logo" alt="Logo">
+        <h3>CityRide</h3>
+        <p>Your Go-To Rental Service</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="Landing.html">Homepage</a>
+        <a href="AboutUs.html">About Us</a>
+        <a href="Catalogue.html">Vehicles</a>
+        <a href="Reviews.html">Reviews</a>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>Email: support@cityride.com</p>
+        <p>Phone: +60 12-345 6789</p>
+        <p>Address: Kuala Lumpur, Malaysia</p>
+      </div>
     </div>
+
+    <div class="footer-bottom">
+      © 2025 CityRide — All Rights Reserved
+    </div>
+  </footer>
+  
+ <script>
+  const loginDropdown = document.querySelector('.login-dropdown');
+  const loginBtn = document.querySelector('.login-btn');
+
+  loginBtn.addEventListener('click', () => {
+    loginDropdown.classList.toggle('show');
+  });
+
+  // Close the dropdown if clicked outside
+  window.addEventListener('click', function(e) {
+    if (!loginDropdown.contains(e.target)) {
+      loginDropdown.classList.remove('show');
+    }
+  });
+</script>
+
 </body>
 </html>
-

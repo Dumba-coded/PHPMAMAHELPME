@@ -1,0 +1,125 @@
+ body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+    
+            height: 100vh;
+        }
+.con{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+        .profile-container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 30rem;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #eee200;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d4c300;
+        }
+
+        .message {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+
+
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: #fff8e1; /* soft yellow theme */
+        }
+
+        .navbar, .footer {
+            width: 100%;
+            background: #FFD700; /* taxi yellow */
+            padding: 1rem;
+        }
+
+        .navbar a {
+            margin-right: 1rem;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .profile-container {
+            max-width: 700px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-info p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+
+        .logout-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: #f44336;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.3rem;
+        }

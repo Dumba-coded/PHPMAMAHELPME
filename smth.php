@@ -1,19 +1,54 @@
-<?php 
-    require "ratingfunctions.php";
-    $review_data = getData();
+<?php
+session_start();
+require __DIR__ . '/CityRideProject/db.php'; // your database connection
 
+// Redirect if not logged in
+$user_id = $_SESSION['user_id'] ?? null;
+
+// Handle new review submission
+$message = "";
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $user_id) {
+    $rating = (int)$_POST['rating'];
+    $review_text = $_POST['review_text'];
+
+    if ($rating >= 1 && $rating <= 5 && !empty($review_text)) {
+        $stmt = $conn->prepare("INSERT INTO Reviews (user_id, rating, review_text) VALUES (?, ?, ?)");
+        $stmt->bind_param("iis", $user_id, $rating, $review_text);
+
+        if ($stmt->execute()) {
+            $message = "Review submitted successfully!";
+        } else {
+            $message = "Error: " . $stmt->error;
+        }
+    } else {
+        $message = "Please enter a valid rating and review text.";
+    }
+}
+
+// Fetch all reviews
+$reviews = $conn->query("
+    SELECT r.*, u.username 
+    FROM Reviews r
+    JOIN Users u ON r.user_id = u.user_id
+    ORDER BY r.created_at DESC
+")->fetch_all(MYSQLI_ASSOC);
+
+// Calculate average rating
+$avg_rating_result = $conn->query("SELECT AVG(rating) AS avg_rating, COUNT(*) AS total_reviews FROM Reviews");
+$avg_data = $avg_rating_result->fetch_assoc();
+$average_rating = round($avg_data['avg_rating'] ?? 0, 1);
+$total_reviews = $avg_data['total_reviews'] ?? 0;
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CityRide — Your Go-to Car Rental Service!</title>
+    <title>CityRide Reviews</title>
     <link rel="stylesheet" href="reviewstyle.css">
 </head>
 <body>
-    <div class="navbar">
+ <div class="navbar">
         <img class="logopic" src="images/rentallogo.png"><span class="logo">CityRide</span><span class="logocapt">Your Go-To Rental Service</span>
         <div class="barbtns">
             <div class="navbtn"><a class="the" href="Landing.html">Homepage</a></div>
@@ -27,61 +62,53 @@
             <div class="login"><img class="pfp" src="images/emptypfp.png"></div>
         </div>
     </div>
-        <div class="reviewtop">
-            <div class="tp">
-                <span class="heading">What Our Users Think</span>
-                <span class="totalstars">4.3</span><span class="contd">out of<br>5.0 stars<br><span class="total">(7 total reviews)</span></span>
-            </div>
-            <div class="btm">
-                <div class="review one">
-                    <span class="reviewhead">Comfortable Rides!</span> 
-                    <span class="reviewpara">“Renting from CityRide was a smooth and enjoyable experience. The booking process was easy, and I received instant confirmation. The car was clean, comfortable, and drove perfectly. Staff were friendly and helpful, making pickup and drop-off simple. I’ll definitely rent from them again!”</span>
-                    <div class="ratingstars"> 
-                        <span class="topstar">&#9734;</span>
-                        <span class="topstar">&#9734;</span>
-                        <span class="topstar">&#9734;</span>
-                        <span class="topstar">&#9734;</span>
-                        <span class="topstar">&#9734;</span>
-                    </div>
-                </div>
-                <div class="review two">
-                    <span class="reviewhead">Awsome facilities!</span>                    
-                    <span class="reviewpara">“CityRide made my car rental stress-free. Their website was easy to use, and the vehicle I chose was in excellent condition. The staff explained everything clearly, and returning the car was hassle-free. Reliable service at a good price!”</span>
-                    <div class="ratingstars"> 
-                        <span class="topstar">&#9734;</span>
-                        <span class="topstar">&#9734;</span>
-                        <span class="topstar">&#9734;</span>
-                        <span class="topstar">&#9734;</span>
-                        <span class="topstar">&#9734;</span>
-                    </div>
-                </div>
-                <div class="review three">                    
-                    <span class="reviewhead">Great accessibility!</span> 
-                    <span class="reviewpara">“Fantastic experience with CityRide! The car was comfortable and well-maintained, and the pickup process was quick and professional. I felt supported throughout my trip, and I’ll be using them again for future rentals.”</span>
-                    <div class="ratingstars"> 
-                        <span class="topstar">&#9734;</span>
-                        <span class="topstar">&#9734;</span>
-                        <span class="topstar">&#9734;</span>
-                        <span class="topstar">&#9734;</span>
-                        <span class="topstar">&#9734;</span>
-                    </div>
-                </div>
-            </div>
+       <div class="reviewtop">
+        <div class="tp">
+            <span class="heading">What Our Users Think</span>
+            <span class="totalstars"><?= $average_rating ?></span>
+            <span class="contd">out of<br>5.0 stars<br><span class="total">(<?= $total_reviews ?> total reviews)</span></span>
         </div>
-        <div class="reviewmiddle">
-            <span class="ask">Let us know what you think!</span>
-            <div class="reviewstars" data-user-review="1" data-average-rating="4.3">
-                <span class="star" data-value="1">&#9734;</span>
-                <span class="star" data-value="2">&#9734;</span>
-                <span class="star" data-value="3">&#9734;</span>
-                <span class="star" data-value="4">&#9734;</span>
-                <span class="star" data-value="5">&#9734;</span>
-            </div>
-            <input class="usertext" type="text" name="usertext" id="usertext">
+        <div class="btm">
+            <?php foreach ($reviews as $r): ?>
+                <div class="review">
+                    <span class="reviewhead"><?= htmlspecialchars($r['username']) ?></span>
+                    <span class="reviewpara"><?= htmlspecialchars($r['review_text']) ?></span>
+                    <div class="ratingstars">
+                        <?php for ($i = 1; $i <= 5; $i++): ?>
+                            <span class="topstar"><?= $i <= $r['rating'] ? '&#9733;' : '&#9734;' ?></span>
+                        <?php endfor; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
-        <div class="reviewbottom">
+    </div>
 
-        </div>
+    <div class="reviewmiddle">
+        <span class="ask">Let us know what you think!</span>
+        <?php if ($user_id): ?>
+            <form method="POST">
+                <label for="rating">Rating:</label>
+                <select name="rating" id="rating" required>
+                    <option value="">-- Select Rating --</option>
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+                <br>
+                <textarea name="review_text" rows="4" placeholder="Write your review here..." required></textarea>
+                <br>
+                <button type="submit">Submit Review</button>
+            </form>
+        <?php else: ?>
+            <p>Please <a href="login.php">login</a> to submit a review.</p>
+        <?php endif; ?>
+        <?php if($message) echo "<p>$message</p>"; ?>
+    </div>
+
+    <div class="reviewbottom"></div>
+    
 <footer class="footer">
     <div class="footer-content">
       <div class="footer-left">
@@ -171,28 +198,14 @@
                             .then(response => response.json()) /* fetches response from rate.php */
                             .then(data => {
                                 console.log('Server response:', data); /* fetches data to convert into js object */
-                                if (data.status === 'success') {
-                                    const avgRating = container.nextElementSibling;
-                                    avgRating.text.Content = `Average: ${data.newAverage} / 5 (${data.newCount} votes)`;
-
-                                    updateStars(container, data.newAverage);
-                                }
-                            
                             })
-
-                            .catch(error=> {
-                                console.error('Error:', error);
-                                container.classList.remove('rated');
-                                delete savedRatings[userReview];
-                                localStorage.setItem(storageKey, JSON.stringify(savedRatings));
-                                updateStars(container, averageRating);
                         });
-                    });
+                    }
                 }
 
-            }
             }
         });
 </script>
 </body>
 </html>
+</div>
