@@ -1,33 +1,55 @@
 <?php
+header("Content-Type: application/json");
 
-// This php file receives the data from the ratingscript.js file and stores the data witin a phpMyAdmin database.   
 require 'ratingfunctions.php';
-$mysqli = connect();
+$pdo = connect();
 
-$data = json_decode(file_get_contents('php://input'), true);
+$data = json_decode(file_get_contents("php://input"), true);
 
 if (!$data || !isset($data['userReview']) || !isset($data['rating'])) {
     http_response_code(400);
-    echo json_encode(['status' => 'error', 'message' => 'Invalid data provided.']);
+    echo json_encode([
+        'status' => 'error',
+        'message' => 'Invalid data provided.'
+    ]);
     exit;
 }
 
-$userReview = $userReview['userReview'];
+$userReview = $data['userReview'];
 $rating = $data['rating'];
 
-// to query databse
-$stmt = $mysqli->prepare("INSERT INTO ratings (movie_id, rating) VALUES (?, ?)");
+try {
+    $stmt = $pdo->prepare("INSERT INTO ratings (userReview, rating) VALUES (?, ?)");
+    $stmt->execute([$userReview, $rating]);
 
-$stmt->bind_param("ii", $userReview, $rating); 
+    $stmt = $pdo->prepare("
 
-// Execute the statement
-if ($stmt->execute()) {
+    SELECT
+        AVG(rating) as avg_rating,
+        COUNT(id) as votecount
+    
+    FROM
+        ratings
+    
+    WHERE
+        user_Review = ?
+
+    ");
+
+    $stmt->execute([$userReview]);
+    $newRating = $stmt->fetch(PDO::FETCH_ASSOC);
+
     echo json_encode([
-    'status' => 'success',
-    'message' => 'Rating saved.'
+        'status' => 'success',
+        'message' => 'Rating saved successfully.',
+        'newAverage' => round($newRating['avg_rating'] ?? 0,2),
+        'newCount' => (int)($newRating['vote_count'] ?? 0),
     ]);
 
-} else {
+} catch (PDOException $e) {
     http_response_code(500);
-    echo json_encode(['status' => 'error', 'message' => 'Failed to save rating.']);
+    echo json_encode([
+        'status' => 'error',
+        'message' => 'Database error: ' . $e->getMessage()
+    ]);
 }

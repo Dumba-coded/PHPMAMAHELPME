@@ -12,5 +12,6 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    echo "Connected!"; // ash check if it works for u and then remove it after testing
+     // ash check if it works for u and then remove it after testing
+     // works! removed it
 ?>

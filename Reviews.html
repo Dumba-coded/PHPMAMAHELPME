@@ -1,3 +1,9 @@
+<?php 
+    require "ratingfunctions.php";
+    $review_data = getData();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,11 +169,26 @@
                             .then(response => response.json()) /* fetches response from rate.php */
                             .then(data => {
                                 console.log('Server response:', data); /* fetches data to convert into js object */
+                                if (data.status === 'success') {
+                                    const avgRating = container.nextElementSibling;
+                                    avgRating.text.Content = `Average: ${data.newAverage} / 5 (${data.newCount} votes)`;
+
+                                    updateStars(container, data.newAverage);
+                                }
+                            
                             })
+
+                            .catch(error=> {
+                                console.error('Error:', error);
+                                container.classList.remove('rated');
+                                delete savedRatings[userReview];
+                                localStorage.setItem(storageKey, JSON.stringify(savedRatings));
+                                updateStars(container, averageRating);
                         });
-                    }
+                    });
                 }
 
+            }
             }
         });
 </script>
