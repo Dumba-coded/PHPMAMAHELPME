@@ -54,8 +54,8 @@ $Cars = $result->fetch_all(MYSQLI_ASSOC);
   </div>
 
     <span class="heading">Vehicles Available for Rent</span>
-    <div class="middle">
-        <div class="middleright">
+   
+    <div class="con">
             <div class="filter">
                 <form method="GET">
                     <label>Sort by:</label>
@@ -66,7 +66,8 @@ $Cars = $result->fetch_all(MYSQLI_ASSOC);
                 </form>
             </div>
         </div>
-        <div class="middleleft">
+            </div>
+        
 <div class="grid">
     <?php foreach ($Cars as $car): ?>
         <div class="card">
