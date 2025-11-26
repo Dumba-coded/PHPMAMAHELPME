@@ -1,0 +1,148 @@
+   /*
+
+   <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <img src="images/rentallogo.png" class="footer-logo" alt="Logo">
+        <h3>CityRide</h3>
+        <p>Your Go-To Rental Service</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="Landing.html">Homepage</a>
+        <a href="AboutUs.html">About Us</a>
+        <a href="Catalogue.html">Vehicles</a>
+        <a href="Reviews.html">Reviews</a>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>Email: support@cityride.com</p>
+        <p>Phone: +60 12-345 6789</p>
+        <p>Address: Kuala Lumpur, Malaysia</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 CityRide — All Rights Reserved
+    </div>
+  </footer>
+  
+  */
+   
+   /* ------------------------ FOOTER ------------------------ */
+    .footer {
+      background-color: #222;
+      color: #fff;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      max-width: 62.5rem;
+      margin: auto;
+    }
+
+    .footer-content div {
+      flex: 1;
+      min-width: 12.5rem;
+    }
+
+    .footer-logo {
+      width: 3.125rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      margin: 0.3rem 0;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.4);
+      font-size: 0.9rem;
+    }
+
+    /* ------------------------ RESPONSIVE ------------------------ */
+    @media (max-width: 700px) {
+      .team-card {
+        width: 100%;
+      }
+
+      .barbtns {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+    }
+
+
+    /* ------------------------ account ------------------------ */
+
+
+    /* Dropdown container */
+.login-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.login-btn {
+  background: none;
+  border: none;
+  font-family: Creato;
+  font-size: 1vw;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+  margin-top: 2vw;
+}
+
+/* Dropdown menu (hidden by default) */
+.login-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  min-width: 10rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  z-index: 100;
+}
+
+/* Dropdown links */
+.login-menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-menu a:hover {
+  background-color: #ffc928; /* yellow hover */
+}
+
+/* Show menu when parent has .show class */
+.login-dropdown.show .login-menu {
+  display: block;
+}

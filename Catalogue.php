@@ -17,7 +17,7 @@ $Cars = $result->fetch_all(MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CityRide — Your Go-to Car Rental Service!</title>
     <link rel="stylesheet" href="catalogue.css">
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="footer2.css">
     <style>
     .filter { margin-bottom: 1rem; }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
@@ -83,7 +83,36 @@ $Cars = $result->fetch_all(MYSQLI_ASSOC);
         </div>
     </div>
 
-</body>
+    <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <img src="images/rentallogo.png" class="footer-logo" alt="Logo">
+        <h3>CityRide</h3>
+        <p>Your Go-To Rental Service</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="Landing.html">Homepage</a>
+        <a href="AboutUs.html">About Us</a>
+        <a href="Catalogue.html">Vehicles</a>
+        <a href="Reviews.html">Reviews</a>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>Email: support@cityride.com</p>
+        <p>Phone: +60 12-345 6789</p>
+        <p>Address: Kuala Lumpur, Malaysia</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 CityRide — All Rights Reserved
+    </div>
+  </footer>
+
 
 
 
@@ -138,4 +167,5 @@ $Cars = $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 </script>
+</body>
 </html>
