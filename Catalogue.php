@@ -5,9 +5,9 @@ require __DIR__ . '/CityRideProject/db.php';
 $sort = $_GET['sort'] ?? 'asc'; // default ascending
 $order = ($sort === 'desc') ? 'DESC' : 'ASC';
 
-// Fetch vec from DB
-$result = $conn->query("SELECT * FROM vec ORDER BY price_per_day $order");
-$vec = $result->fetch_all(MYSQLI_ASSOC);
+// Fetch Cars from DB
+$result = $conn->query("SELECT * FROM Cars ORDER BY price_per_day $order");
+$Cars = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +68,7 @@ $vec = $result->fetch_all(MYSQLI_ASSOC);
         </div>
         <div class="middleleft">
 <div class="grid">
-    <?php foreach ($vec as $car): ?>
+    <?php foreach ($Cars as $car): ?>
         <div class="card">
             <img src="<?= htmlspecialchars($car['car_image']) ?>" alt="<?= htmlspecialchars($car['car_name']) ?>">
             <h3><?= htmlspecialchars($car['car_name']) ?></h3>
