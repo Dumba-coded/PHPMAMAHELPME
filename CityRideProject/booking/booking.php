@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="navbtn"><a class="the" href="../../Landing.html">Homepage</a></div>
             <div class="navbtn"><a class="the" href="../../AboutUs.html">About Us</a></div>
             <div class="navbtn"><a class="the" href="../../Catalogue.php">Vehicles</a></div>
-            <div class="navbtn"><a class="the" href="../../Reviews.html">Reviews</a></div>
+            <div class="navbtn"><a class="the" href="../../Reviews.php">Reviews</a></div>
             <div class="navbtn"><a class="the active" href="booking.php">Bookings</a></div>
         </div>     
         <div class="accnt">
@@ -115,9 +115,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="login-dropdown">
                     <button class="login-btn">Account ▼</button>
                     <div class="login-menu">
-                    <a href="CityRideProject/auth/login.php">Log In/ Sign Up</a>
-                    <a href="../auth/update_profile.php">Update Profile</a>
-                    <a href="CityRideProject/auth/logout.php">Log Out</a>
+                    <a href="../auth/login.php">Log In/ Sign Up</a>
+                    <a href="../users/update_profile.php">Update Profile</a>
+                    <a href="../auth/logout.php">Log Out</a>
                     </div>
                 </div>
                 </div>

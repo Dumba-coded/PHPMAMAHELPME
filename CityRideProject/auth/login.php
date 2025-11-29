@@ -75,7 +75,7 @@ if (isset($_POST['signup'])) {
             <div class="navbtn"><a class="the" href="../../Landing.html">Homepage</a></div>
             <div class="navbtn"><a class="the " href="../../AboutUs.html">About Us</a></div>
             <div class="navbtn"><a class="the" href="../../Catalogue.php">Vehicles</a></div>
-            <div class="navbtn"><a class="the" href="../../Reviews.html">Reviews</a></div>
+            <div class="navbtn"><a class="the" href="../../Reviews.php">Reviews</a></div>
             <div class="navbtn"><a class="the" href="../booking/booking.php">Bookings</a></div>
         </div>     
         <div class="accnt">

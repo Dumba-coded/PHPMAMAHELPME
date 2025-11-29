@@ -208,11 +208,10 @@ a {
     flex-direction: column;
     width: 95vw;
     margin-top: 1vw;
+    margin-left: 2vw;
     height: 10vw;
-    margin: 1vw 2vw; /* top and horizontal margins */
-    padding-top: 2vw; /* optional padding */
-    box-shadow: rgba(0,0,0,0.438) 0vw 0vh .6vw .01vw;
-
+    box-shadow:rgba(0, 0, 0, 0.438) 0vw 0vh .6vw .01vw;
+    margin-bottom: 50vw
 }
 
 .topstar {
@@ -225,18 +224,20 @@ a {
     font-family: Creato;
     color: black;
     font-size: 1vw;
-    margin-left: 4vw;   
+    margin-left: 7.5vw;
+    margin-top: 2vw;   
 }
 
 .usertext {
     position: absolute;
+    transform: translate(20vw, 2vw);
     width: 60vw;
     height: 5vw;
-    margin-left: 5vw;
 }
 
 .reviewstars {
-    margin-left: 2vw;
+    margin-left: 7vw;
+    margin-right: 2vw;
 }
 
 .star {
@@ -244,6 +245,10 @@ a {
     color: rgb(109, 109, 109);
     cursor: pointer;
     transition: color 0.2s;
+}
+
+.usertext {
+    margin-left: 5vw;
 }
 
 .reviewstars:hover .star {
@@ -340,15 +345,13 @@ a {
 
 
 
-
-.submit-btn {
-
-    margin-left: 5vw;
-    padding: 0.8vw 2vw;
-    font-size: 1vw;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 0.5vw;
-    cursor: pointer;
+.reviewmiddle {
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    flex-direction: column;
+    width: 95vw;
+    margin: 1vw 2vw; /* top and horizontal margins */
+    padding: 2vw; /* optional padding */
+    box-shadow: rgba(0,0,0,0.438) 0vw 0vh .6vw .01vw;
 }
+

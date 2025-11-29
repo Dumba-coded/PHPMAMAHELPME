@@ -1,7 +1,43 @@
-<?php 
-    require "ratingfunctions.php";
-    $review_data = getData();
+<?php
+session_start();
+require __DIR__ . '/CityRideProject/db.php'; // your database connection
 
+// Redirect if not logged in
+$user_id = $_SESSION['user_id'] ?? null;
+
+// Handle new review submission
+$message = "";
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $user_id) {
+    $rating = (int)$_POST['rating'];
+    $review_text = $_POST['review_text'];
+
+    if ($rating >= 1 && $rating <= 5 && !empty($review_text)) {
+        $stmt = $conn->prepare("INSERT INTO Reviews (user_id, rating, review_text) VALUES (?, ?, ?)");
+        $stmt->bind_param("iis", $user_id, $rating, $review_text);
+
+        if ($stmt->execute()) {
+            $message = "Review submitted successfully!";
+        } else {
+            $message = "Error: " . $stmt->error;
+        }
+    } else {
+        $message = "Please enter a valid rating and review text.";
+    }
+}
+
+// Fetch all reviews
+$reviews = $conn->query("
+    SELECT r.*, u.username 
+    FROM Reviews r
+    JOIN Users u ON r.user_id = u.user_id
+    ORDER BY r.created_at DESC
+")->fetch_all(MYSQLI_ASSOC);
+
+// Calculate average rating
+$avg_rating_result = $conn->query("SELECT AVG(rating) AS avg_rating, COUNT(*) AS total_reviews FROM Reviews");
+$avg_data = $avg_rating_result->fetch_assoc();
+$average_rating = round($avg_data['avg_rating'] ?? 0, 1);
+$total_reviews = $avg_data['total_reviews'] ?? 0;
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +48,7 @@
     <title>CityRide — Your Go-to Car Rental Service!</title>
     <link rel="stylesheet" href="reviewstyle.css">
     <link rel="stylesheet" href="footer.css">
+
 </head>
 <body>
      <div class="navbar">
@@ -20,7 +57,7 @@
             <div class="navbtn"><a class="the" href="Landing.html">Homepage</a></div>
             <div class="navbtn"><a class="the" href="AboutUs.html">About Us</a></div>
             <div class="navbtn"><a class="the" href="Catalogue.php">Vehicles</a></div>
-            <div class="navbtn"><a class="the active" href="Reviews.html">Reviews</a></div>
+            <div class="navbtn"><a class="the active" href="Reviews.php">Reviews</a></div>
             <div class="navbtn"><a class="the" href="CityRideProject/booking/booking.php">Bookings</a></div>
         </div>     
         <div class="accnt">
@@ -78,17 +115,50 @@
                 </div>
             </div>
         </div>
+
         <div class="reviewmiddle">
-            <span class="ask">Let us know what you think!</span>
-            <div class="reviewstars" data-user-review="1" data-average-rating="4.3">
+    <span class="ask">Let us know what you think!</span>
+
+    <?php if ($user_id): ?>
+    <form method="POST">
+        
+        <div class="review-form-box">
+            
+            <div class="reviewstars" id="star-container">
                 <span class="star" data-value="1">&#9734;</span>
                 <span class="star" data-value="2">&#9734;</span>
                 <span class="star" data-value="3">&#9734;</span>
                 <span class="star" data-value="4">&#9734;</span>
                 <span class="star" data-value="5">&#9734;</span>
+
+                  <textarea 
+                class="usertext" 
+                name="review_text" 
+                rows="4" 
+                placeholder="Write your review here..." 
+                required></textarea>
+
             </div>
-            <input class="usertext" type="text" name="usertext" id="usertext">
-        </div>  
+
+            <input type="hidden" name="rating" id="rating-input" required>
+
+          
+            <button type="submit" class="submit-btn">Submit Review</button>
+
+        </div>
+
+    </form>
+    <?php else: ?>
+        <p>Please <a href="CityRideProject/auth/login.php">login</a> to submit a review.</p>
+    <?php endif; ?>
+
+    <?php if($message) echo "<p>$message</p>"; ?>
+</div>
+
+          
+     
+
+
 <footer class="footer">
     <div class="footer-content">
       <div class="footer-left">
@@ -118,6 +188,31 @@
     </div>
   </footer>
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const stars = document.querySelectorAll("#star-container .star");
+    const ratingInput = document.getElementById("rating-input");
+
+    stars.forEach(star => {
+        star.addEventListener("click", () => {
+            const value = parseInt(star.dataset.value);
+
+            ratingInput.value = value;
+
+            // highlight stars
+            stars.forEach(s => {
+                if (parseInt(s.dataset.value) <= value) {
+                    s.innerHTML = "&#9733;"; // filled
+                    s.classList.add("filled");
+                } else {
+                    s.innerHTML = "&#9734;"; // empty
+                    s.classList.remove("filled");
+                }
+            });
+        });
+    });
+});
+
+
         document.addEventListener('DOMContentLoaded', function() {
             const reviewStars = document.querySelectorAll('.reviewstars');
             const storageKey = 'userReviews' /* stores ratings in local storage & only allows a user to review once */
