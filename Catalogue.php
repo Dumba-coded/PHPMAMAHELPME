@@ -17,16 +17,8 @@ $Cars = $result->fetch_all(MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CityRide — Your Go-to Car Rental Service!</title>
     <link rel="stylesheet" href="catalogue.css">
-    <link rel="stylesheet" href="footer2.css">
-    <style>
-    .filter { margin-bottom: 1rem; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .card { background: #fff; border-radius: 8px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; }
-    .card img { width: 100%; height: 150px; object-fit: cover; border-radius: 5px; }
-    .card h3 { margin: 0.5rem 0; }
-    .card p { font-size: 0.9rem; color: #555; }
-    .price { font-weight: bold; margin-top: 0.5rem; color: #333; }
-</style>
+    <link rel="stylesheet" href="Catalogue2.css">
+ 
 </head>
 <body>
 

@@ -57,46 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <link rel="stylesheet" href="../../aboutus.css">
   <link rel="stylesheet" href="../../footer.css">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-    }
-
-    .booking-container {
-      max-width: 700px;
-      margin: 3rem auto;
-      background: white;
-      padding: 2rem 3rem;
-      border-radius: 1rem;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-
-    h1 { text-align: center; margin-bottom: 1.5rem; }
-
-    label { font-weight: bold; margin-top: 1rem; display: block; }
-
-    input, select, textarea {
-      width: 100%;
-      padding: .8rem;
-      border: 1px solid #ccc;
-      border-radius: .5rem;
-    }
-
-    textarea { height: 100px; resize: none; }
-
-    .submit-btn {
-      width: 100%;
-      padding: 1rem;
-      background: #ffc928;
-      border: none;
-      margin-top: 1.5rem;
-      font-weight: bold;
-      border-radius: .7rem;
-    }
-  </style>
+  <link rel="stylesheet" href="booking.css">
 </head>
 <body>
 

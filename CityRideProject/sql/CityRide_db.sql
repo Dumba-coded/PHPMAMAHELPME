@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 29, 2025 at 08:43 AM
+-- Generation Time: Nov 29, 2025 at 11:11 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `Bookings` (
   `booking_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `vehicle_type` varchar(100) NOT NULL,
+  `vehicle_type` varchar(255) NOT NULL DEFAULT 'Standard',
   `pickup_date` date NOT NULL,
   `return_date` date NOT NULL,
   `notes` text DEFAULT NULL,
@@ -45,7 +45,9 @@ CREATE TABLE `Bookings` (
 --
 
 INSERT INTO `Bookings` (`booking_id`, `user_id`, `vehicle_type`, `pickup_date`, `return_date`, `notes`, `pickup_location`, `status`, `created_at`, `car_id`) VALUES
-(1, 1, 'SUV', '2025-11-08', '2025-12-07', NULL, 'Taylors College', 'Pending', '2025-11-25 21:07:52', NULL);
+(1, 1, 'SUV', '2025-11-08', '2025-12-07', NULL, 'Taylors College', 'Pending', '2025-11-25 21:07:52', NULL),
+(10, 7, 'Standard', '2025-10-30', '2025-12-07', NULL, '', 'Pending', '2025-11-29 09:52:32', 2),
+(11, 8, 'Standard', '2025-11-14', '2025-11-29', NULL, 'cityride centre', 'Pending', '2025-11-29 10:08:23', 1);
 
 -- --------------------------------------------------------
 
@@ -72,8 +74,8 @@ CREATE TABLE `Cars` (
 --
 
 INSERT INTO `Cars` (`car_id`, `vehicle_type`, `model`, `license_plate`, `seats`, `available`, `created_at`, `car_name`, `car_image`, `description`, `price_per_day`) VALUES
-(1, 'SUV', 'Toyota RAV4', 'ABC1234', 5, 1, '2025-11-26 01:08:59', 'RAV4 Adventure', 'images/rav4.png', 'A comfortable SUV perfect for family trips.', 120.00),
-(2, 'Sedan', 'Honda Accord', 'XYZ5678', 5, 1, '2025-11-26 01:08:59', 'Accord Deluxe', 'images/accorddeluxe.png\r\n', 'Sleek and fuel-efficient sedan for city drives.', 90.00),
+(1, 'SUV', 'Toyota RAV4', 'ABC1234', 5, 0, '2025-11-26 01:08:59', 'RAV4 Adventure', 'images/rav4.png', 'A comfortable SUV perfect for family trips.', 120.00),
+(2, 'Sedan', 'Honda Accord', 'XYZ5678', 5, 0, '2025-11-26 01:08:59', 'Accord Deluxe', 'images/accorddeluxe.png\r\n', 'Sleek and fuel-efficient sedan for city drives.', 90.00),
 (3, 'Hatchback', 'Volkswagen Golf', 'GHI9101', 4, 1, '2025-11-26 01:08:59', 'Golf Compact', 'images/golfcompact.png', 'Compact hatchback ideal for daily commutes.', 70.00),
 (4, 'SUV', 'Ford Explorer', 'JKL1122', 7, 1, '2025-11-26 01:08:59', 'Explorer Max', 'images/explorermax.png', 'Spacious SUV for long journeys.', 150.00),
 (5, 'Convertible', 'Mazda MX-5', 'MNO3344', 2, 1, '2025-11-26 01:08:59', 'MX-5 Sport', 'images/mx5.png', 'Fun convertible for weekend drives.', 130.00),
@@ -92,6 +94,16 @@ CREATE TABLE `Reviews` (
   `review_text` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `Reviews`
+--
+
+INSERT INTO `Reviews` (`review_id`, `user_id`, `rating`, `review_text`, `created_at`) VALUES
+(1, 1, 5, 'the car was immaculate ', '2025-11-29 08:20:37'),
+(11, 7, 5, 'excellent', '2025-11-29 09:44:07'),
+(12, 7, 5, 'This is my second time booking from CityRide, and it was absolutely AWESOME!', '2025-11-29 10:07:00'),
+(13, 8, 4, 'meh', '2025-11-29 10:07:51');
 
 -- --------------------------------------------------------
 
@@ -113,7 +125,9 @@ CREATE TABLE `Users` (
 --
 
 INSERT INTO `Users` (`user_id`, `username`, `email`, `password`, `phone`, `created_at`) VALUES
-(1, 'Fatima', 'www.fatimatuzehra@gmail.com', '$2y$10$5vZBr52K.dvRo8qDLiHcIeOd/wyAw2jzd96/9LTpbESLQhITCBT82', '565656', '2025-11-25 13:41:29');
+(1, 'Fatima', 'www.fatimatuzehra@gmail.com', '$2y$10$5vZBr52K.dvRo8qDLiHcIeOd/wyAw2jzd96/9LTpbESLQhITCBT82', '565656', '2025-11-25 13:41:29'),
+(7, 'shazia', 'shaznz123@gmail.com', '$2y$10$U90kErQZuyvUPFll0gXUD.F0ih7G4JZqYPaSdxQrnEILMudoxGi5.', '1212', '2025-11-29 09:35:47'),
+(8, '123_123', '123@gmail.com', '$2y$10$EDcEDQWVAfgTRPd/Fsc0rOR31GgLI6/JGsiW/8.nB.3h.SPTkKkoK', '123123', '2025-11-29 10:07:42');
 
 --
 -- Indexes for dumped tables
@@ -156,7 +170,7 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT for table `Bookings`
 --
 ALTER TABLE `Bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `Cars`
@@ -168,13 +182,13 @@ ALTER TABLE `Cars`
 -- AUTO_INCREMENT for table `Reviews`
 --
 ALTER TABLE `Reviews`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
