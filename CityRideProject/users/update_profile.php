@@ -30,6 +30,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $sql = "SELECT * FROM Users WHERE user_id='$user_id'"; // make sure column is user_id
 $result = $conn->query($sql);
 $user = $result->fetch_assoc();
+
+
+// DELETE ACCOUNT
+if (isset($_POST['delete_account'])) {
+    $delete_sql = "DELETE FROM Users WHERE user_id='$user_id'";
+
+    if ($conn->query($delete_sql) === TRUE) {
+        session_destroy();
+        header("Location: ../auth/login.php?deleted=1");
+        exit();
+    } else {
+        $update_error = "Error deleting account: " . $conn->error;
+    }
+}
 ?>
 
 
@@ -41,13 +55,13 @@ $user = $result->fetch_assoc();
     <title>Profile - CityRide</title>
      <link rel="stylesheet" href="../../aboutus.css">
   <link rel="stylesheet" href="../../footer.css">
-  <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="updated.css">
     
 </head>
 <body>
 
   <!-- Navbar -->
-  <div class="navbar">
+<div class="navbar">
         <img class="logopic" src="../../images/rentallogo.png"><span class="logo">CityRide</span><span class="logocapt">Your Go-To Rental Service</span>
         <div class="barbtns">
             <div class="navbtn"><a class="the" href="../../Landing.html">Homepage</a></div>
@@ -62,7 +76,7 @@ $user = $result->fetch_assoc();
                     <button class="login-btn">Account ▼</button>
                     <div class="login-menu">
                     <a href="../auth/login.php">Log In/ Sign Up</a>
-                    <a href="auth/update_profile.php">Update Profile</a>
+                    <a href="update_profile.php">Update Profile</a>
                     <a href="../auth/logout.php">Log Out</a>
                     </div>
                 </div>
@@ -87,12 +101,18 @@ $user = $result->fetch_assoc();
             <label for="phone">Phone</label>
             <input type="text" name="phone" id="phone" value="<?php echo htmlspecialchars($user['phone']); ?>" required>
 
-            <button type="submit">Update Profile</button>
+            <button type="submit" class="button1">Update Profile</button>
+
+            <button type="submit" name="delete_account" class="delete-btn button1" 
+              onclick="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+                Delete Account
+            </button>
+
         </form>
         </div>
 </div>
    <!-- Footer -->
-  <footer class="footer">
+   <footer class="footer">
     <div class="footer-content">
       <div class="footer-left">
         <img src="../../images/rentallogo.png" class="footer-logo" alt="Logo">

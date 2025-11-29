@@ -46,7 +46,7 @@
             font-size: 1rem;
         }
 
-        button {
+        .button1 {
             width: 100%;
             padding: 0.75rem;
             background-color: #eee200;
@@ -58,7 +58,7 @@
             transition: background-color 0.3s ease;
         }
 
-        button:hover {
+        .sbutton1 :hover {
             background-color: #d4c300;
         }
 
@@ -73,27 +73,6 @@
             color: red;
         }
 
-
-    body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background: #fff8e1; /* soft yellow theme */
-        }
-
-        .navbar, .footer {
-            width: 100%;
-            background: #FFD700; /* taxi yellow */
-            padding: 1rem;
-        }
-
-        .navbar a {
-            margin-right: 1rem;
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-        }
 
         .profile-container {
             max-width: 700px;
@@ -123,3 +102,71 @@
             text-decoration: none;
             border-radius: 0.3rem;
         }
+
+        .delete-btn {
+    margin-top: 20px;
+    background-color: #d9534f;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.delete-btn:hover {
+    background-color: #c9302c;
+}
+
+
+
+
+
+    /* Dropdown container */
+.login-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.login-btn {
+  background: none;
+  border: none;
+  font-family: Creato;
+  font-size: 1vw;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+  margin-top: 2vw;
+}
+
+/* Dropdown menu (hidden by default) */
+.login-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  min-width: 10rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  z-index: 100;
+}
+
+/* Dropdown links */
+.login-menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-menu a:hover {
+  background-color: #ffc928; /* yellow hover */
+}
+
+/* Show menu when parent has .show class */
+.login-dropdown.show .login-menu {
+  display: block;
+}

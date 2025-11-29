@@ -29,7 +29,7 @@ if ($result->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login / Sign Up - CityRide</title>
      <link rel="stylesheet" href="../../login.css">
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="updated.css">
     <link rel="stylesheet" href="../../footer.css">
     <link rel="stylesheet" href="../../aboutus.css">
    
