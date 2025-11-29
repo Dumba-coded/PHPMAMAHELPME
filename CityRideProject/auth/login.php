@@ -65,8 +65,9 @@ if (isset($_POST['signup'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login / Sign Up - CityRide</title>
-    <link rel="stylesheet" href="../../login.css">
+    <link rel="stylesheet" href="../../loginin.css">
     <link rel="stylesheet" href="../../footer.css">
+
 </head>
 <body>
 <div class="navbar">
